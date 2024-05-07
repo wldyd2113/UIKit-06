@@ -21,3 +21,50 @@ let rating = 3.5
 var ratingResult = "The restaurant rating is " + String(rating)
 ratingResult = "The restaurant rating is \(rating)"
 print(ratingResult)
+
+let isRestaurantOpen = true
+
+if isRestaurantOpen {
+    print("Restaurant is open.")
+}
+
+let isRestaurantFound = false
+if !isRestaurantFound {
+    print("Restaurant was not found")
+}
+let drinkingAgeLimit = 21
+let customerAge = 23
+
+if customerAge < drinkingAgeLimit {
+    print("Under age limit")
+}
+else {
+    print("Over age limit")
+}
+
+let trafficLightColor = "Yellow"
+
+switch trafficLightColor {
+case "Red":
+    print("Stop")
+case "Yellow":
+    print("Caution")
+case "Green":
+    print("Go")
+default:
+    print("Invalid color")
+}
+
+
+var spouseName: String?
+print(spouseName ?? "No value in spouseName")
+
+spouseName = "Nia"
+print(spouseName ?? "No value in spouseName")
+
+if let spouseTempVar = spouseName {
+    let greeting =  "Hello, " + spouseTempVar
+    print(greeting)
+} else {
+    print("No one")
+}
