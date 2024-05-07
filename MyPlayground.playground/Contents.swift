@@ -90,8 +90,21 @@ while y<50 {
     print("y is \(y)")
 }
 
-var x = 0
-repeat {
-    x += 5
-    print("x is \(x)")
-} while x < 50
+//var x = 0
+//repeat {
+//    x += 5
+//    print("x is \(x)")
+//} while x < 50
+print("----------------------------")
+var shoppingList = ["Egg", "Milk"]
+
+print(shoppingList.count)
+
+shoppingList.append("Cooking Oil")
+shoppingList = shoppingList + ["Chicken"]
+shoppingList.insert("Water", at:1)
+
+shoppingList.remove(at: 1)
+let removeElement = shoppingList.removeLast()
+print("remove: \(removeElement)")
+
