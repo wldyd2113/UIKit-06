@@ -1,25 +1,45 @@
 
-struct Reptile {
-    var name: String
-    var sound: String
-    var numberOfLegs: Int
-    var breathesOxygen: Bool
-    let hasFurOrHasir: Bool = false
-    
-    func makeSound() {
-        print(sound)
-    }
+enum TrafficLightColor: String {
+    case red
+    case yellow
+    case green
     
     func description() -> String {
-        return "Struct name \(self.name) \nsound: \(self.sound) \nnumberOfLegs: \(self.numberOfLegs) \nbreathesOxygen: \(self.breathesOxygen)"
-
+        switch self {
+        case .red:
+            return "red"
+        case .yellow:
+            return "yellow"
+        case .green:
+            return "green"
+        }
     }
 }
 
-var snake = Reptile(name: "Snake", sound: "Hiss", numberOfLegs: 0, breathesOxygen: true)
-print(snake.description())
-snake.makeSound()
+var trafficLightColor = TrafficLightColor.red
+print(trafficLightColor.description())
+print(trafficLightColor.rawValue)
 
+//struct Reptile {
+//    var name: String
+//    var sound: String
+//    var numberOfLegs: Int
+//    var breathesOxygen: Bool
+//    let hasFurOrHasir: Bool = false
+//    
+//    func makeSound() {
+//        print(sound)
+//    }
+//    
+//    func description() -> String {
+//        return "Struct name \(self.name) \nsound: \(self.sound) \nnumberOfLegs: \(self.numberOfLegs) \nbreathesOxygen: \(self.breathesOxygen)"
+//
+//    }
+//}
+//
+//var snake = Reptile(name: "Snake", sound: "Hiss", numberOfLegs: 0, breathesOxygen: true)
+//print(snake.description())
+//snake.makeSound()
 
 //class Animal {
 //    var name: String
