@@ -136,3 +136,9 @@ print(oldSetVAlue ?? "No Value")
 for genre in movieGeneres {
     print(genre)
 }
+
+let movieGeneres2: Set = ["SF", "War", "Fantasy"]
+movieGeneres.union(movieGeneres2)//합집합
+movieGeneres.intersection(movieGeneres2)//교집합
+movieGeneres.subtracting(movieGeneres2)//차집합
+movieGeneres.symmetricDifference(movieGeneres2)//여집합
