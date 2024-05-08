@@ -14,11 +14,11 @@ func serviceCharge(mealCost: Int) -> Int{
 let serviceChargeAmount = serviceCharge(mealCost: 50)
 print(serviceChargeAmount)
 
-func serviceCharge(forMealPrice mealCost: Int) -> Int{
+func serviceCharge(_ mealCost: Int) -> Int{
     return mealCost / 15
 }
 
-let serviceChargeAmount2 = serviceCharge(forMealPrice: 50)
+let serviceChargeAmount2 = serviceCharge(50)
 print(serviceChargeAmount2)
 
 //let theAnswerToTheUltimateQuestion = 42
