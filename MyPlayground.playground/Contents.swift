@@ -1,36 +1,58 @@
 
-class Animal {
+struct Reptile {
     var name: String
     var sound: String
     var numberOfLegs: Int
-    var breathesOxygen: Bool = true
-    
-    init(name: String, sound: String, numberOfLegs: Int, breathesOxygen: Bool) {
-        self.name = name
-        self.sound = sound
-        self.numberOfLegs = numberOfLegs
-        self.breathesOxygen = breathesOxygen
-    }
+    var breathesOxygen: Bool
+    let hasFurOrHasir: Bool = false
     
     func makeSound() {
-        print(self.sound)
+        print(sound)
     }
     
-    func discription() -> String {
-        return "name \(self.name) \nsound: \(self.sound) \nnumberOfLegs: \(self.numberOfLegs) \nbreathesOxygen: \(self.breathesOxygen)"
+    func description() -> String {
+        return "Struct name \(self.name) \nsound: \(self.sound) \nnumberOfLegs: \(self.numberOfLegs) \nbreathesOxygen: \(self.breathesOxygen)"
+
     }
 }
 
-class Mammal: Animal {
-    let hasFurOrHasir: Bool = true
-    
-    override func discription() -> String {
-        return super.discription() + "\nhasFurOrHair: \(self.hasFurOrHasir)"
-    }
-}
+var snake = Reptile(name: "Snake", sound: "Hiss", numberOfLegs: 0, breathesOxygen: true)
+print(snake.description())
+snake.makeSound()
 
-let cat = Mammal(name: "Cat", sound: "Mew", numberOfLegs: 4, breathesOxygen: true)
-print(cat.discription())
+
+//class Animal {
+//    var name: String
+//    var sound: String
+//    var numberOfLegs: Int
+//    var breathesOxygen: Bool = true
+//    
+//    init(name: String, sound: String, numberOfLegs: Int, breathesOxygen: Bool) {
+//        self.name = name
+//        self.sound = sound
+//        self.numberOfLegs = numberOfLegs
+//        self.breathesOxygen = breathesOxygen
+//    }
+//    
+//    func makeSound() {
+//        print(self.sound)
+//    }
+//    
+//    func discription() -> String {
+//        return "name \(self.name) \nsound: \(self.sound) \nnumberOfLegs: \(self.numberOfLegs) \nbreathesOxygen: \(self.breathesOxygen)"
+//    }
+//}
+//
+//class Mammal: Animal {
+//    let hasFurOrHasir: Bool = true
+//    
+//    override func discription() -> String {
+//        return super.discription() + "\nhasFurOrHair: \(self.hasFurOrHasir)"
+//    }
+//}
+//
+//let cat = Mammal(name: "Cat", sound: "Mew", numberOfLegs: 4, breathesOxygen: true)
+//print(cat.discription())
 
 //var numbersArray = [2, 4, 6, 7]
 //let myClosure = {(number: Int) -> Int in
