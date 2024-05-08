@@ -108,3 +108,15 @@ shoppingList.remove(at: 1)
 let removeElement = shoppingList.removeLast()
 print("remove: \(removeElement)")
 
+print("----------Dictionary----------")
+var contactList = ["Shah": "+60123456789", "Aamir": "0223456789"]
+print(contactList.count)
+print(contactList.isEmpty)
+
+contactList["Jane"] = "0229876543"
+print(contactList["Shah"] ?? "No Value")
+print(contactList.count)
+
+for(name, contactNumber) in contactList {
+    print("\(name): \(contactNumber)")
+}
