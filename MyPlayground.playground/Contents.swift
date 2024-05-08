@@ -1,24 +1,56 @@
 
-var numbersArray = [2, 4, 6, 7]
-let myClosure = {(number: Int) -> Int in
-    let result = number * number
-    return result
+class Animal {
+    var name: String
+    var sound: String
+    var numberOfLegs: Int
+    var breathesOxygen: Bool = true
+    
+    init(name: String, sound: String, numberOfLegs: Int, breathesOxygen: Bool) {
+        self.name = name
+        self.sound = sound
+        self.numberOfLegs = numberOfLegs
+        self.breathesOxygen = breathesOxygen
+    }
+    
+    func makeSound() {
+        print(self.sound)
+    }
+    
+    func discription() -> String {
+        return "name \(self.name) \nsound: \(self.sound) \nnumberOfLegs: \(self.numberOfLegs) \nbreathesOxygen: \(self.breathesOxygen)"
+    }
 }
 
-let mappedNumbers = numbersArray.map(myClosure)
+class Mammal: Animal {
+    let hasFurOrHasir: Bool = true
+    
+    override func discription() -> String {
+        return super.discription() + "\nhasFurOrHair: \(self.hasFurOrHasir)"
+    }
+}
 
-var testNumbers = [2, 4, 6, 7]
-//let mappedTestNumbers =  testNumbers.map({(number: Int) -> Int in
-//    let result  = number * number
+let cat = Mammal(name: "Cat", sound: "Mew", numberOfLegs: 4, breathesOxygen: true)
+print(cat.discription())
+
+//var numbersArray = [2, 4, 6, 7]
+//let myClosure = {(number: Int) -> Int in
+//    let result = number * number
 //    return result
-//})
-//let mappedTestNumbers = testNumbers.map({number in
-//    number * number
-//})
-
-let mappedTestNumbers = testNumbers.map { $0 * $0 }
-print(mappedTestNumbers)
-
+//}
+//
+//let mappedNumbers = numbersArray.map(myClosure)
+//
+//var testNumbers = [2, 4, 6, 7]
+////let mappedTestNumbers =  testNumbers.map({(number: Int) -> Int in
+////    let result  = number * number
+////    return result
+////})
+////let mappedTestNumbers = testNumbers.map({number in
+////    number * number
+////})
+//
+//let mappedTestNumbers = testNumbers.map { $0 * $0 }
+//print(mappedTestNumbers)
 
 //func buySomething(itemValueEntered itemValueField: String, cardBlance: Int) -> Int {
 //    guard let itemValue = Int(itemValueField) else {
