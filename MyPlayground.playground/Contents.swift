@@ -1,24 +1,33 @@
 
-func calculateMonthlyPayments(carPrice: Double, downPayment: Double, 
-                              interestRate: Double, paymentTerm: Double) -> Double {
-    func loanAmount() -> Double {
-        return carPrice - downPayment
+func makePi() ->(() -> Double) {
+    func generatePi() -> Double {
+        return 22.0 / 7.0
     }
-    
-    func totalInterest() -> Double {
-        return interestRate * paymentTerm
-    }
-    
-    func numberOfMonths() -> Double {
-        return paymentTerm * 12
-    }
-    
-    return((loanAmount() + (loanAmount() * totalInterest() / 100)) / numberOfMonths())
+    return generatePi
 }
+let pi = makePi()
+print(pi())
 
-calculateMonthlyPayments(carPrice: 50000, downPayment: 5000, interestRate: 3.5, paymentTerm: 7)
 
 
+//func calculateMonthlyPayments(carPrice: Double, downPayment: Double,
+//                              interestRate: Double, paymentTerm: Double) -> Double {
+//    func loanAmount() -> Double {
+//        return carPrice - downPayment
+//    }
+//    
+//    func totalInterest() -> Double {
+//        return interestRate * paymentTerm
+//    }
+//    
+//    func numberOfMonths() -> Double {
+//        return paymentTerm * 12
+//    }
+//    
+//    return((loanAmount() + (loanAmount() * totalInterest() / 100)) / numberOfMonths())
+//}
+//
+//calculateMonthlyPayments(carPrice: 50000, downPayment: 5000, interestRate: 3.5, paymentTerm: 7)
 
 //func serviceCharge() {
 //    let mealCost = 50
