@@ -1,15 +1,36 @@
 
-func buySomething(itemValueEntered itemValueField: String, cardBlance: Int) -> Int {
-    guard let itemValue = Int(itemValueField) else {
-        print("error in item value")
-        return cardBlance
-    }
-    let remainingBalance = cardBlance - itemValue
-    return remainingBalance
+var numbersArray = [2, 4, 6, 7]
+let myClosure = {(number: Int) -> Int in
+    let result = number * number
+    return result
 }
 
-print(buySomething(itemValueEntered: "10", cardBlance: 50))
-print(buySomething(itemValueEntered: "blue", cardBlance: 50))
+let mappedNumbers = numbersArray.map(myClosure)
+
+var testNumbers = [2, 4, 6, 7]
+//let mappedTestNumbers =  testNumbers.map({(number: Int) -> Int in
+//    let result  = number * number
+//    return result
+//})
+//let mappedTestNumbers = testNumbers.map({number in
+//    number * number
+//})
+
+let mappedTestNumbers = testNumbers.map { $0 * $0 }
+print(mappedTestNumbers)
+
+
+//func buySomething(itemValueEntered itemValueField: String, cardBlance: Int) -> Int {
+//    guard let itemValue = Int(itemValueField) else {
+//        print("error in item value")
+//        return cardBlance
+//    }
+//    let remainingBalance = cardBlance - itemValue
+//    return remainingBalance
+//}
+//
+//print(buySomething(itemValueEntered: "10", cardBlance: 50))
+//print(buySomething(itemValueEntered: "blue", cardBlance: 50))
 
 //func isThereAMatch(listOfNumbers: [Int], condition: (Int) -> Bool) -> Bool {
 //    for item in listOfNumbers {
