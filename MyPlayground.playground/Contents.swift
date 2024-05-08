@@ -120,3 +120,19 @@ print(contactList.count)
 for(name, contactNumber) in contactList {
     print("\(name): \(contactNumber)")
 }
+
+var movieGeneres: Set = ["Horror", "Action", "Romantic Comedy"]
+
+print(movieGeneres.count)
+print(movieGeneres.isEmpty)
+
+movieGeneres.insert("War")
+
+movieGeneres.contains("War")
+
+var oldSetVAlue = movieGeneres.remove("Action")
+print(oldSetVAlue ?? "No Value")
+
+for genre in movieGeneres {
+    print(genre)
+}
