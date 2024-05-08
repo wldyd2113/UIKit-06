@@ -140,5 +140,9 @@ for genre in movieGeneres {
 let movieGeneres2: Set = ["SF", "War", "Fantasy"]
 movieGeneres.union(movieGeneres2)//합집합
 movieGeneres.intersection(movieGeneres2)//교집합
-movieGeneres.subtracting(movieGeneres2)//차집합
+var subSetMovieGenres = movieGeneres.subtracting(movieGeneres2)//차집합
 movieGeneres.symmetricDifference(movieGeneres2)//여집합
+
+movieGeneres == movieGeneres2
+subSetMovieGenres.isSubset(of: movieGeneres)
+movieGeneres.isSuperset(of: subSetMovieGenres)
