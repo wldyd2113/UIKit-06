@@ -1,14 +1,28 @@
 
-func makePi() ->(() -> Double) {
-    func generatePi() -> Double {
-        return 22.0 / 7.0
+func isThereAMatch(listOfNumbers: [Int], condition: (Int) -> Bool) -> Bool {
+    for item in listOfNumbers {
+        if condition(item) {
+            return true
+        }
     }
-    return generatePi
+    return false
 }
-let pi = makePi()
-print(pi())
 
+func oddNumber(number: Int) -> Bool {
+    return (number % 2) > 0
+}
 
+let numberList = [2, 4, 6, 7]
+isThereAMatch(listOfNumbers: numberList, condition: oddNumber)
+
+//func makePi() ->(() -> Double) {
+//    func generatePi() -> Double {
+//        return 22.0 / 7.0
+//    }
+//    return generatePi
+//}
+//let pi = makePi()
+//print(pi())
 
 //func calculateMonthlyPayments(carPrice: Double, downPayment: Double,
 //                              interestRate: Double, paymentTerm: Double) -> Double {
