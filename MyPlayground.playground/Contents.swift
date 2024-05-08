@@ -1,19 +1,31 @@
 
-func isThereAMatch(listOfNumbers: [Int], condition: (Int) -> Bool) -> Bool {
-    for item in listOfNumbers {
-        if condition(item) {
-            return true
-        }
+func buySomething(itemValueEntered itemValueField: String, cardBlance: Int) -> Int {
+    guard let itemValue = Int(itemValueField) else {
+        print("error in item value")
+        return cardBlance
     }
-    return false
+    let remainingBalance = cardBlance - itemValue
+    return remainingBalance
 }
 
-func oddNumber(number: Int) -> Bool {
-    return (number % 2) > 0
-}
+print(buySomething(itemValueEntered: "10", cardBlance: 50))
+print(buySomething(itemValueEntered: "blue", cardBlance: 50))
 
-let numberList = [2, 4, 6, 7]
-isThereAMatch(listOfNumbers: numberList, condition: oddNumber)
+//func isThereAMatch(listOfNumbers: [Int], condition: (Int) -> Bool) -> Bool {
+//    for item in listOfNumbers {
+//        if condition(item) {
+//            return true
+//        }
+//    }
+//    return false
+//}
+//
+//func oddNumber(number: Int) -> Bool {
+//    return (number % 2) > 0
+//}
+//
+//let numberList = [2, 4, 6, 7]
+//isThereAMatch(listOfNumbers: numberList, condition: oddNumber)
 
 //func makePi() ->(() -> Double) {
 //    func generatePi() -> Double {
