@@ -1,24 +1,52 @@
 
-enum TrafficLightColor: String {
-    case red
-    case yellow
-    case green
+protocol CalorieCount {
+    var calories: Int { get }
+    func description() -> String
+}
+
+class Burger: CalorieCount {
+    var calories = 800
     
     func description() -> String {
-        switch self {
-        case .red:
-            return "red"
-        case .yellow:
-            return "yellow"
-        case .green:
-            return "green"
-        }
+        return "This burger has \(calories) calories"
+    }
+    
+    
+}
+
+struct Fries: CalorieCount {
+    var calories = 500
+    
+    func description() -> String {
+        return "These fries have \(calories) calories"
     }
 }
 
-var trafficLightColor = TrafficLightColor.red
-print(trafficLightColor.description())
-print(trafficLightColor.rawValue)
+enum Sauce {
+    case chili
+    case tomato
+}
+
+//enum TrafficLightColor: String {
+//    case red
+//    case yellow
+//    case green
+//    
+//    func description() -> String {
+//        switch self {
+//        case .red:
+//            return "red"
+//        case .yellow:
+//            return "yellow"
+//        case .green:
+//            return "green"
+//        }
+//    }
+//}
+//
+//var trafficLightColor = TrafficLightColor.red
+//print(trafficLightColor.description())
+//print(trafficLightColor.rawValue)
 
 //struct Reptile {
 //    var name: String
