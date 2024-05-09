@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -61,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1973.2824427480916" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1894" y="-249"/>
         </scene>
         <!--New Entry-->
         <scene sceneID="Q8e-YP-4RB">
@@ -85,7 +86,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jq4-eo-sVM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Ttr-iI-07r" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3718" y="3"/>
+            <point key="canvasLocation" x="3830" y="-662"/>
         </scene>
         <!--Map-->
         <scene sceneID="jSL-rY-UHi">
@@ -94,8 +95,20 @@
                     <view key="view" contentMode="scaleToFill" id="kln-0I-ZoW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Bs-ch-pO7">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3N6-Zo-d6t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2Bs-ch-pO7" firstAttribute="top" secondItem="3N6-Zo-d6t" secondAttribute="top" id="E3K-78-2fC"/>
+                            <constraint firstItem="3N6-Zo-d6t" firstAttribute="trailing" secondItem="2Bs-ch-pO7" secondAttribute="trailing" id="VC6-85-tkd"/>
+                            <constraint firstItem="2Bs-ch-pO7" firstAttribute="leading" secondItem="3N6-Zo-d6t" secondAttribute="leading" id="dfd-bO-45L"/>
+                            <constraint firstItem="3N6-Zo-d6t" firstAttribute="bottom" secondItem="2Bs-ch-pO7" secondAttribute="bottom" id="qzq-fV-2SA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="Nzk-kY-DGm"/>
                 </viewController>
@@ -150,7 +163,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H9h-6b-8mM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2857" y="749"/>
+            <point key="canvasLocation" x="2857" y="62"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="we7-XY-PkI">
@@ -188,7 +201,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="93d-Q2-z8y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1046.5648854961833" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1046" y="-248"/>
         </scene>
         <!--Map-->
         <scene sceneID="I05-t1-VeI">
@@ -225,7 +238,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeE-eY-PfY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2857" y="3"/>
+            <point key="canvasLocation" x="2857" y="-661"/>
         </scene>
     </scenes>
     <resources>
