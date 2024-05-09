@@ -1,7 +1,22 @@
 
+enum WebsiteError: Error {
+    case noInternetConnection
+    case siteDown
+    case wrongURL
+}
+func checkWebsite(siteUp: Bool) throws -> String {
+    if siteUp == false {
+        throw WebsiteError.siteDown
+    }
+    return "Site is up"
+}
 
-
-
+let siteStatus = true
+do {
+    print(try checkWebsite(siteUp: siteStatus))
+} catch {
+    print(error)
+}
 
 
 //protocol CalorieCount {
