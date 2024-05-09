@@ -18,13 +18,15 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! //Outlet: 객체
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
+    
+    @IBAction func unwindNewEntryCancel(sqgue: UIStoryboardSegue) {
+        print("Test!!!")
+    }
 }
 
