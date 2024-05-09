@@ -5,7 +5,7 @@ protocol CalorieCount {
 }
 
 class Burger: CalorieCount {
-    var calories = 800
+    var calories:Int = 800
     
     func description() -> String {
         return "This burger has \(calories) calories"
@@ -15,17 +15,43 @@ class Burger: CalorieCount {
 }
 
 struct Fries: CalorieCount {
-    var calories = 500
+    var calories: Int {
+        return 500
+    }
     
     func description() -> String {
         return "These fries have \(calories) calories"
     }
 }
 
-enum Sauce {
+enum Sauce: CalorieCount {
+    var calories: Int {
+        switch self {
+        case .chili:
+            return 50
+        case .tomato:
+            return 80
+        }
+    }
+    
+    func description() -> String {
+        switch self {
+        case .chili:
+            return "This chili sauce has \(calories) calories"
+        case .tomato:
+            return "This tomato sauce has \(calories) calories"
+
+        }
+    }
+    
     case chili
     case tomato
 }
+
+var fries = Fries()
+
+var burger = Burger()
+burger.calories = 1000
 
 //enum TrafficLightColor: String {
 //    case red
