@@ -1,58 +1,63 @@
 
-protocol CalorieCount {
-    var calories: Int { get }
-    func description() -> String
-}
 
-class Burger: CalorieCount {
-    var calories:Int = 800
-    
-    func description() -> String {
-        return "This burger has \(calories) calories"
-    }
-    
-    
-}
 
-struct Fries: CalorieCount {
-    var calories: Int {
-        return 500
-    }
-    
-    func description() -> String {
-        return "These fries have \(calories) calories"
-    }
-}
 
-enum Sauce {
-    case chili
-    case tomato
-}
 
-extension Sauce: CalorieCount {
-    var calories: Int {
-        switch self {
-        case .chili:
-            return 50
-        case .tomato:
-            return 80
-        }
-    }
-    
-    func description() -> String {
-        return "This chili sauce has \(calories) calories"
-    }
-}
 
-let fries = Fries()
-let burger = Burger()
-let sauce = Sauce.tomato
-let foodArray: [CalorieCount] = [burger, fries, sauce]
-var totalCalories = 0
-for food in foodArray {
-    totalCalories += food.calories
-}
-print(totalCalories)
+//protocol CalorieCount {
+//    var calories: Int { get }
+//    func description() -> String
+//}
+//
+//class Burger: CalorieCount {
+//    var calories:Int = 800
+//    
+//    func description() -> String {
+//        return "This burger has \(calories) calories"
+//    }
+//    
+//    
+//}
+//
+//struct Fries: CalorieCount {
+//    var calories: Int {
+//        return 500
+//    }
+//    
+//    func description() -> String {
+//        return "These fries have \(calories) calories"
+//    }
+//}
+//
+//enum Sauce {
+//    case chili
+//    case tomato
+//}
+//
+//extension Sauce: CalorieCount {
+//    var calories: Int {
+//        switch self {
+//        case .chili:
+//            return 50
+//        case .tomato:
+//            return 80
+//        }
+//    }
+//    
+//    func description() -> String {
+//        return "This chili sauce has \(calories) calories"
+//    }
+//}
+//
+//let fries = Fries()
+//let burger = Burger()
+//let sauce = Sauce.tomato
+//let foodArray: [CalorieCount] = [burger, fries, sauce]
+//var totalCalories = 0
+//for food in foodArray {
+//    totalCalories += food.calories
+//}
+//print(totalCalories)
 
 //enum TrafficLightColor: String {
 //    case red
