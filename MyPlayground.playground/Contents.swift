@@ -24,7 +24,12 @@ struct Fries: CalorieCount {
     }
 }
 
-enum Sauce: CalorieCount {
+enum Sauce {
+    case chili
+    case tomato
+}
+
+extension Sauce: CalorieCount {
     var calories: Int {
         switch self {
         case .chili:
@@ -35,23 +40,19 @@ enum Sauce: CalorieCount {
     }
     
     func description() -> String {
-        switch self {
-        case .chili:
-            return "This chili sauce has \(calories) calories"
-        case .tomato:
-            return "This tomato sauce has \(calories) calories"
-
-        }
+        return "This chili sauce has \(calories) calories"
     }
-    
-    case chili
-    case tomato
 }
 
-var fries = Fries()
-
-var burger = Burger()
-burger.calories = 1000
+let fries = Fries()
+let burger = Burger()
+let sauce = Sauce.tomato
+let foodArray: [CalorieCount] = [burger, fries, sauce]
+var totalCalories = 0
+for food in foodArray {
+    totalCalories += food.calories
+}
+print(totalCalories)
 
 //enum TrafficLightColor: String {
 //    case red
