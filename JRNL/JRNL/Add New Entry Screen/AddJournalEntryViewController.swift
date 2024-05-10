@@ -12,7 +12,8 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
     @IBOutlet var titleTextField: UITextField! //@IBOutlet은 옵셔널 Value
     @IBOutlet var bodyTextView: UITextView!
     @IBOutlet var photoImageView: UIImageView!
-
+    
+    @IBOutlet var saveButton: UIBarButtonItem!
     
     var newJournalEntry: JournalEntry? // 처음부터 없는 값을 만들어서 옵셔널 선언
     
@@ -21,6 +22,7 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
         titleTextField.delegate = self
         bodyTextView.delegate = self
         // Do any additional setup after loading the view.
+        updateSaveBurronState()
     }
     
 
@@ -43,12 +45,27 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
         textField.resignFirstResponder()
         return true
     }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSaveBurronState()
+    }
     
     // MARK: - UITextViewDelegate
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        print("text: \(range.description) \(text)")
         if(text == "\n") {
             textView.resignFirstResponder()
         }
         return true
+    }
+    
+    //MARK - Methods
+    func textViewDidEndEditing(_ textView: UITextView) {
+        updateSaveBurronState()
+    }
+    
+    private func updateSaveBurronState() {
+        let textFieldText = titleTextField.text ?? ""
+        let textViewText = bodyTextView.text ?? ""
+        saveButton.isEnabled = !textFieldText.isEmpty && !textViewText.isEmpty
     }
 }
