@@ -17,7 +17,8 @@ class JournalEntry {
     let latitude: Double? //위도
     let longitude: Double? //경도
     
-    init?(date: Date, rateing: Int, title: String, body: String, photo: UIImage? = nil, latitude: Double? = nil, longitude: Double? = nil) {
+    // MARK: - Intialization
+    init?(rateing: Int, title: String, body: String, photo: UIImage? = nil, latitude: Double? = nil, longitude: Double? = nil) {
         if title.isEmpty || body.isEmpty || rateing < 0 || rateing > 5 {
             return nil
         }
@@ -28,5 +29,29 @@ class JournalEntry {
         self.photo = photo
         self.latitude = latitude
         self.longitude = longitude
+    }
+}
+
+// MARK: - Sample data
+struct SampleJournalEntryData {
+    var journalEntries: [JournalEntry] = []
+    
+    mutating func createSampleJournalEntryData() {
+        let photo1 = UIImage(systemName: "sun.max")
+        let photo2 = UIImage(systemName: "cloud")
+        let photo3 = UIImage(systemName: "cloud.sun")
+        guard let journalEntry1 = JournalEntry(rateing: 5, title: "Good", body: "Today is good day", photo: photo1) else {
+            fatalError("Unable to instantiate journalEntry1")
+        }
+        
+        guard let journalEntry2 = JournalEntry(rateing: 0, title: "Bad", body: "Today is Bad day", photo: photo2) else {
+            fatalError("Unable to instantiate journalEntry2")
+        }
+        
+        guard let journalEntry3 = JournalEntry(rateing: 3, title: "O", body: "Today is Ok day", photo: photo3) else {
+            fatalError("Unable to instantiate journalEntry3")
+        }
+        
+        journalEntries += [journalEntry1, journalEntry2, journalEntry3]
     }
 }
