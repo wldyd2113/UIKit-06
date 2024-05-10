@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  JRNL
 //
-//  Created by Jungman Bae on 5/7/24.
+//  Created by 차지용 on 5/7/24.
 //
 
 import UIKit
@@ -30,6 +30,14 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         journalCell.dateLable.text = journalEntries.date.formatted(.dateTime.year().month().day())
         journalCell.titleLable.text = journalEntries.entryTitle
         return journalCell
+    }
+    
+    // MARK: - UITableViewDelegate
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            sampleJournalEntryData.journalEntries.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
     }
     
     // MARK: - Methods
