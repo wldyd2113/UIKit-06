@@ -63,7 +63,7 @@
                                             <outlet property="dateLable" destination="CrZ-oz-oOc" id="HsE-7K-FRX"/>
                                             <outlet property="photoImageView" destination="i9k-nB-UVh" id="b8j-63-TVh"/>
                                             <outlet property="titleLable" destination="gxE-v3-sdq" id="rft-tU-UPe"/>
-                                            <segue destination="xx1-0d-BGn" kind="show" id="MoG-dT-fEU"/>
+                                            <segue destination="xx1-0d-BGn" kind="show" identifier="entryDetail" id="MoG-dT-fEU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
