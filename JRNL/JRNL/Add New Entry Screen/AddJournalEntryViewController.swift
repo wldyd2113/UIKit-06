@@ -8,7 +8,14 @@
 import UIKit
 
 class AddJournalEntryViewController: UIViewController {
+    
+    @IBOutlet var titleTextField: UITextField! //@IBOutlet은 옵셔널 Value
+    @IBOutlet var bodyTextView: UITextView!
+    @IBOutlet var photoImageView: UIImageView!
 
+    
+    var newJournalEntry: JournalEntry? // 처음부터 없는 값을 만들어서 옵셔널 선언
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +23,19 @@ class AddJournalEntryViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { //
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        let title = titleTextField.text ?? ""
+        let body = bodyTextView.text ?? ""
+        let photo = photoImageView.image
+        let rateing = 3
+        newJournalEntry = JournalEntry(rateing: rateing, title: title, body: body, photo: photo)
     }
-    */
+    
 
 }
