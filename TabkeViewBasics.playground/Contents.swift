@@ -23,5 +23,17 @@ class TableViewExampleController: UIViewController, UITableViewDataSource {
         cell.contentConfiguration = content
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            journalEntries.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSlectRowAt indexPath: IndexPath)  {
+        let selectedjournalEntry = journalEntries[indexPath.row]
+        print(selectedjournalEntry)
+    }
 
 }
