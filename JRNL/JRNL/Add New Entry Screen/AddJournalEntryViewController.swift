@@ -22,7 +22,7 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
         titleTextField.delegate = self
         bodyTextView.delegate = self
         // Do any additional setup after loading the view.
-        updateSaveBurronState()
+        updateSaveButtonState()
     }
     
 
@@ -45,8 +45,9 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
         textField.resignFirstResponder()
         return true
     }
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        updateSaveBurronState()
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        updateSaveButtonState()
+        return true
     }
     
     // MARK: - UITextViewDelegate
@@ -55,15 +56,15 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
         if(text == "\n") {
             textView.resignFirstResponder()
         }
+        updateSaveButtonState()
         return true
     }
     
-    //MARK - Methods
     func textViewDidEndEditing(_ textView: UITextView) {
-        updateSaveBurronState()
+        updateSaveButtonState()
     }
-    
-    private func updateSaveBurronState() {
+    //MARK - Methods
+    private func updateSaveButtonState() {
         let textFieldText = titleTextField.text ?? ""
         let textViewText = bodyTextView.text ?? ""
         saveButton.isEnabled = !textFieldText.isEmpty && !textViewText.isEmpty

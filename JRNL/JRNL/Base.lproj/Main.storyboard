@@ -141,7 +141,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="08l-aK-K61"/>
                                         </constraints>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -183,6 +182,7 @@
                     <connections>
                         <outlet property="bodyTextView" destination="FSa-G0-Mie" id="hA4-ND-UeI"/>
                         <outlet property="photoImageView" destination="ADd-JN-K3G" id="zTv-ki-xEW"/>
+                        <outlet property="saveButton" destination="Bic-hn-tmc" id="L2a-jd-Ca1"/>
                         <outlet property="titleTextField" destination="y5x-lU-8LG" id="ftL-qw-dMT"/>
                     </connections>
                 </viewController>
@@ -219,10 +219,10 @@
             </objects>
             <point key="canvasLocation" x="1939.6946564885495" y="713.38028169014092"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Journal Entry Detail View Controller-->
         <scene sceneID="plx-7k-a73">
             <objects>
-                <tableViewController id="xx1-0d-BGn" sceneMemberID="viewController">
+                <tableViewController id="xx1-0d-BGn" customClass="JournalEntryDetailViewController" customModule="JRNL" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="peM-Uv-s8G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -373,6 +373,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="8M4-cW-mOy"/>
+                    <connections>
+                        <outlet property="bodyTextView" destination="KxN-SV-Ykb" id="5wf-mx-oV9"/>
+                        <outlet property="dateLabel" destination="lSQ-aL-EEz" id="jZG-sF-jaL"/>
+                        <outlet property="photoImageView" destination="gEZ-MJ-NZD" id="xjx-v6-pi9"/>
+                        <outlet property="titleLabel" destination="MaR-cK-waj" id="ED0-Xz-Cbh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GwD-wa-0Nb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
