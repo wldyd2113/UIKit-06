@@ -67,6 +67,7 @@ class JournalListTableViewCell: UITableViewCell {
     }
     
     // MARK: - configureCell
+    //뷰에다가 연결해줌
     func configureCell(journalEntry: JournalEntry) {
         thumbnailView.image = journalEntry.photo
         dateLabel.text = journalEntry.date.formatted(.dateTime.year().month().day())
