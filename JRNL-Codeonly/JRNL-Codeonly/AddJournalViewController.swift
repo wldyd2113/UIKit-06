@@ -116,7 +116,7 @@ class AddJournalViewController: UIViewController {
               let body = bodyTextView.text, !body.isEmpty else {
             return
         }
-        let journalEntry = JournalEntry(rating: 3, title: title, body: body)!
+        let journalEntry = JournalEntry(rating: 3, title: title, body: body, photo: UIImage(systemName: "face.smiling"))!
         delegate?.saveJournalEntry(journalEntry)
         dismiss(animated: true)
     }
