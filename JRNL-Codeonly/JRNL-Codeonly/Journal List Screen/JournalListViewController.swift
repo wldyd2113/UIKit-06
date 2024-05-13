@@ -7,7 +7,7 @@
 
 import UIKit
 //delgate: 연결고리 같은거 
-class JournalListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class JournalListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddJournalContrillerDelegate {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         return tableView
@@ -69,7 +69,12 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     @objc private func addJournal() {
         let addJournalViewController = AddJournalViewController()
         let navController = UINavigationController(rootViewController: addJournalViewController)
+        addJournalViewController.delegate = self
         present(navController, animated: true)
+    }
+    
+    public func saveJournalEntry(_ journalEntry: JournalEntry) {
+        print("TEST \(journalEntry.entryTitle)")
     }
 
 }
