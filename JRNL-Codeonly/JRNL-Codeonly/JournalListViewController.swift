@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//delgate: 연결고리 같은거 
 class JournalListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -42,13 +42,18 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     // MARK: - UITableViewDataDource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         10
-    }
+    } //10개의 테이블을 만들어줌
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath)
     }
     
+    // MARK: - UITableViewDelegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let journalDetailViewController = JournalDetailViewController()
+        show(journalDetailViewController, sender: self)
+    }
     // MARK: - Methods
     @objc private func addJournal() {
         let addJournalViewController = AddJournalViewController()
