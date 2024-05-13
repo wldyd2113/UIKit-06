@@ -24,12 +24,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let journalListViewController = JournalListViewController()
         let firstNavigationController = UINavigationController(rootViewController: journalListViewController) //네비게이션 뷰를 만들어줌
+        firstNavigationController.tabBarItem = UITabBarItem(title: "Journal", image: UIImage(systemName: "person.fill"), tag: 0)
         
         let mapViewController = MapViewController()
         let secondNavigationController = UINavigationController(rootViewController: mapViewController) //네비게이션 뷰를 만들어줌
         
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [firstNavigationController, secondNavigationController] //tab만들어줌
+        firstNavigationController.tabBarItem = UITabBarItem(title: "Map", image: UIImage(systemName: "Map.fill"), tag: 1)
         
         
         self.window?.rootViewController = JournalListViewController() //나의첫 뷰가 되게설정
