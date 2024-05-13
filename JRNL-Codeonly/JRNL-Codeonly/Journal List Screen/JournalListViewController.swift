@@ -25,12 +25,12 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        let global = view.safeAreaLayoutGuide
+        let safeArea = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: global.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: global.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: global.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: global.bottomAnchor)
+            tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ])
         
         navigationItem.title = "Journal"
