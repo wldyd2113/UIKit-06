@@ -29,6 +29,17 @@ class JournalListViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: global.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: global.bottomAnchor)
         ])
+        
+        navigationItem.title = "Journal"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add, target: self, action: #selector(addJouranl)
+        )
+    }
+    
+    @objc private func addJouranl() {
+        let addJournalViewController = AddJournalViewController()
+        let navigationController = UINavigationController(rootViewController: addJournalViewController)
+        present(navigationController, animated: true)
     }
 
 
