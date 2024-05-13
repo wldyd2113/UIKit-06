@@ -15,6 +15,16 @@ class AddJournalViewController: UIViewController {
         navigationItem.title = "New Empty"
         view.backgroundColor = .white
         // Do any additional setup after loading the view.
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+
+    }
+    @objc func save() {
+        
+    }
+    @objc func cancel() {
+        dismiss(animated: true)
     }
     
 
