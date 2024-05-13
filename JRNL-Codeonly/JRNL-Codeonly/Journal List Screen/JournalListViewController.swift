@@ -18,8 +18,8 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableView.self, forCellReuseIdentifier: "Journal")
-        
+        tableView.register(JournalListTableViewCell.self, forCellReuseIdentifier: "journalCell")
+
         view.backgroundColor = .white
         
         view.addSubview(tableView)
@@ -54,6 +54,11 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         let journalDetailViewController = JournalDetailViewController()
         show(journalDetailViewController, sender: self)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        90
+    }
+    
     // MARK: - Methods
     @objc private func addJournal() {
         let addJournalViewController = AddJournalViewController()
