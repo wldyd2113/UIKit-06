@@ -11,9 +11,8 @@ class JournalListViewController: UIViewController {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         return tableView
-        
     }() //초기화해줌
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -31,17 +30,16 @@ class JournalListViewController: UIViewController {
         ])
         
         navigationItem.title = "Journal"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .add, target: self, action: #selector(addJouranl)
-        )
-    }
-    
-    @objc private func addJouranl() {
-        let addJournalViewController = AddJournalViewController()
-        let navigationController = UINavigationController(rootViewController: addJournalViewController)
-        present(navigationController, animated: true)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                            target: self,
+                                                            action: #selector(addJournal))
     }
 
+    @objc private func addJournal() {
+        let addJournalViewController = AddJournalViewController()
+        let navController = UINavigationController(rootViewController: addJournalViewController)
+        present(navController, animated: true)
+    }
 
 }
 
