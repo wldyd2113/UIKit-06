@@ -21,6 +21,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        self.window?.windowScene = windowScene
 //        애래코드와 동일
         self.window = UIWindow(windowScene: windowScene)
+        
+        let journalListViewController = JournalListViewController()
+        let firstNavigationController = UINavigationController(rootViewController: journalListViewController) //네비게이션 뷰를 만들어줌
+        
+        let mapViewController = MapViewController()
+        let secondNavigationController = UINavigationController(rootViewController: mapViewController) //네비게이션 뷰를 만들어줌
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [firstNavigationController, secondNavigationController] //tab만들어줌
+        
+        
         self.window?.rootViewController = JournalListViewController() //나의첫 뷰가 되게설정
         self.window?.makeKeyAndVisible()
     }
