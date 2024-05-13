@@ -14,7 +14,7 @@ class AddJournalViewController: UIViewController {
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .fill
-        stackView.spacing = 40
+        stackView.spacing = 8
         return stackView
     }()
     
@@ -39,6 +39,24 @@ class AddJournalViewController: UIViewController {
         
         return stackView
     }()
+    
+    private lazy var titleTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Journal Title"
+        return textField
+    }()
+
+    private lazy var bodyTextView: UITextView = {
+        let textView = UITextView()
+        textView.text = "Journal Body"
+        return textView
+    }()
+
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "face.smiling")
+        return imageView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,12 +70,21 @@ class AddJournalViewController: UIViewController {
         
         mainContainer.addArrangedSubview(ratingView)
         mainContainer.addArrangedSubview(toggleView)
+        mainContainer.addArrangedSubview(titleTextField)
+        mainContainer.addArrangedSubview(bodyTextView)
+        mainContainer.addArrangedSubview(imageView)
         
         view.addSubview(mainContainer)
         
         let safeArea = view.safeAreaLayoutGuide
 
         mainContainer.translatesAutoresizingMaskIntoConstraints = false
+        ratingView.translatesAutoresizingMaskIntoConstraints = false
+        toggleView.translatesAutoresizingMaskIntoConstraints = false
+        titleTextField.translatesAutoresizingMaskIntoConstraints = false
+        bodyTextView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
         
         NSLayoutConstraint.activate([
             mainContainer.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 20),
@@ -65,7 +92,17 @@ class AddJournalViewController: UIViewController {
             mainContainer.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20),
 
             ratingView.widthAnchor.constraint(equalToConstant: 252),
-            ratingView.heightAnchor.constraint(equalToConstant: 44)
+            ratingView.heightAnchor.constraint(equalToConstant: 44),
+
+            titleTextField.leadingAnchor.constraint(equalTo: mainContainer.leadingAnchor, constant: 8),
+            titleTextField.trailingAnchor.constraint(equalTo: mainContainer.trailingAnchor, constant: -8),
+
+            bodyTextView.leadingAnchor.constraint(equalTo: mainContainer.leadingAnchor, constant: 8),
+            bodyTextView.trailingAnchor.constraint(equalTo: mainContainer.trailingAnchor, constant: -8),
+            bodyTextView.heightAnchor.constraint(equalToConstant: 128),
+
+            imageView.widthAnchor.constraint(equalToConstant: 200),
+            imageView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
     @objc func save() {
