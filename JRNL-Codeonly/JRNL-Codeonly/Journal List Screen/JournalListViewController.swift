@@ -12,9 +12,12 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         let tableView = UITableView()
         return tableView
     }() //초기화해줌
+    var sampleJournalEntryData = SampleJournalEntryData()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sampleJournalEntryData.createSampleJournalEntryData()
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -41,12 +44,15 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     
     // MARK: - UITableViewDataDource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
-    } //10개의 테이블을 만들어줌
+        sampleJournalEntryData.journalEntries.count
+    }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as! JournalListTableViewCell
+        let journalEntry = sampleJournalEntryData.journalEntries[indexPath.row]
+        cell.configureCell(journalEntry: journalEntry)
+        return cell
     }
     
     // MARK: - UITableViewDelegate
