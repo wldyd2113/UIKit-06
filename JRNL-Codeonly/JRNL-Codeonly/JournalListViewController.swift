@@ -17,7 +17,7 @@ class JournalListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//        view.backgroundColor = .white
+        view.backgroundColor = .white
         
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
