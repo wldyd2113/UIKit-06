@@ -385,6 +385,7 @@
                     <connections>
                         <outlet property="bodyTextView" destination="KxN-SV-Ykb" id="5wf-mx-oV9"/>
                         <outlet property="dateLabel" destination="lSQ-aL-EEz" id="jZG-sF-jaL"/>
+                        <outlet property="mapImageView" destination="dgh-vm-Ead" id="fKu-Cc-Pbw"/>
                         <outlet property="photoImageView" destination="gEZ-MJ-NZD" id="xjx-v6-pi9"/>
                         <outlet property="titleLabel" destination="MaR-cK-waj" id="ED0-Xz-Cbh"/>
                     </connections>
