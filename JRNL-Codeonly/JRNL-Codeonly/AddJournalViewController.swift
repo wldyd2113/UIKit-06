@@ -13,7 +13,7 @@ protocol AddJournalContrillerDelegate: NSObject {
 
 class AddJournalViewController: UIViewController {
     weak var delegate: AddJournalContrillerDelegate?
-//    의존성
+//    의존  분리를 위해 직접 뷰 컨트롤러를 담기보다, 델리게이트 프로토콜을 이용한다
 //    weak var journalListViewController: JournalListViewController?
     private lazy  var mainContainer: UIStackView = {
         let stackView = UIStackView()
