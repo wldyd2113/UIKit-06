@@ -132,9 +132,9 @@ class JournalDetailViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { //테이블에 높이 설정
         switch indexPath.row {
         case 1: return 60
-        case 2: return 150
-        case 3: return 316
+        case 3: return 150
         case 4: return 316
+        case 5: return 316
         default: return 44.5
         }
     }
