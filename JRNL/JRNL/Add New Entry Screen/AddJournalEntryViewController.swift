@@ -6,16 +6,21 @@
 //
 
 import UIKit
+import CoreLocation //위치정보에 관련된것을 가져와서 사용할 수 있음
 
-class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var titleTextField: UITextField! //@IBOutlet은 옵셔널 Value
     @IBOutlet var bodyTextView: UITextView!
     @IBOutlet var photoImageView: UIImageView!
-    
     @IBOutlet var saveButton: UIBarButtonItem!
     
+    @IBOutlet var getLocationSwitch: UISwitch!
+    @IBOutlet var getLocationSwitchLabel: UILabel!
+    
     var newJournalEntry: JournalEntry? // 처음부터 없는 값을 만들어서 옵셔널 선언
+    let locationManger = CLLocationManager()
+    var currentLocation: CLLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +28,9 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
         bodyTextView.delegate = self
         // Do any additional setup after loading the view.
         updateSaveButtonState()
+        
+        locationManger.delegate = self
+        locationManger.requestAlwaysAuthorization()
     }
     
 

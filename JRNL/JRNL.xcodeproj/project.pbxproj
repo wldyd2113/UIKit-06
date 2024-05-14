@@ -64,10 +64,10 @@
 		3764AF792BE9F85F00A21A1B /* JRNL */ = {
 			isa = PBXGroup;
 			children = (
-				3B80F8482BEE019C00F35E0B /* Entry Detail Scene */,
-				3B80F8452BEDDCDB00F35E0B /* Add New Entry Screen */,
 				3764AF7A2BE9F85F00A21A1B /* AppDelegate.swift */,
 				3764AF7C2BE9F85F00A21A1B /* SceneDelegate.swift */,
+				3B80F8482BEE019C00F35E0B /* Entry Detail Scene */,
+				3B80F8452BEDDCDB00F35E0B /* Add New Entry Screen */,
 				3B80F83E2BEDB7AE00F35E0B /* Jouranl List Screen */,
 				3764AF802BE9F85F00A21A1B /* Main.storyboard */,
 				3764AF832BE9F86000A21A1B /* Assets.xcassets */,
