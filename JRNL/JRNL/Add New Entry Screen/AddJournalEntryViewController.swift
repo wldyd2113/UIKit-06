@@ -108,7 +108,7 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
     @IBAction func getLocationSwitchValueChanged(_ sender: UISwitch) {
         if getLocationSwitch.isOn {
             getLocationSwitchLabel.text = "Getting location..."
-            locationManager.requestLocation()
+            locationManager.requestLocation() //위치정보를 표시해줌
         } else {
             currentLocation = nil
             getLocationSwitchLabel.text = "Get location"
