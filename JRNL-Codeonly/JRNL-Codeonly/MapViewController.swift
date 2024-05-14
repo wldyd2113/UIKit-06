@@ -30,7 +30,7 @@ class MapViewController: UIViewController {
             mapView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
         ])
     }
-    }
+    
     
 
     /*
