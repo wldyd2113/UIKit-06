@@ -22,8 +22,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         locationManger.requestLocation()
         mapView.delegate = self
         sampleJournalEntryData.createSampleJournalEntryData()
-        mapView.addAnnotation(sampleJournalEntryData.journalEntries)
-        
+        mapView.addAnnotations(sampleJournalEntryData.journalEntries)
+
     }
     
     // MARK: - CLLocationManagerDelegate
