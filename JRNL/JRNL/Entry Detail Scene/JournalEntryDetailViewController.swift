@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//
 class JournalEntryDetailViewController: UITableViewController {
     
     @IBOutlet var dateLabel: UILabel!
