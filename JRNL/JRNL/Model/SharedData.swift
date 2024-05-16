@@ -37,6 +37,7 @@ class SharedData {
         journalEntries.remove(at: index)
     }
     
+    //파일을 저장하고 읽을수 있게 사용
     func getDocumentDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
@@ -51,6 +52,19 @@ class SharedData {
             journalEntries = journalEntriesData
         } catch {
             print("Failed to read JSON data: \(error.localizedDescription)")
+
+        }
+    }
+    
+    func saveJournalEntiresData() {
+        let pathDirectory = getDocumentDirectory()
+        try? FileManager.default.createDirectory(at: pathDirectory, withIntermediateDirectories: true)
+        let filePath = pathDirectory.appendingPathComponent("journalEntriesData.json")
+        let json = try? JSONEncoder().encode(journalEntries)
+        do {
+            try json!.write(to: filePath)
+        } catch {
+            print("Failed to write JSON data: \(error.localizedDescription)")
 
         }
     }
