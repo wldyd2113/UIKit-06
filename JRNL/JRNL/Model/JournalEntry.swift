@@ -8,13 +8,13 @@
 import UIKit
 import MapKit
 
-class JournalEntry: NSObject, MKAnnotation {
+class JournalEntry: NSObject, MKAnnotation, Cpdable {
     // MARK: - Properties
-    let date: Date
+    let dateString: String
     let rateing: Int
     let entryTitle: String
     let entryBody: String
-    let photo: UIImage?
+    let photoData: Data?
     let latitude: Double? //위도
     let longitude: Double? //경도
     
@@ -23,11 +23,12 @@ class JournalEntry: NSObject, MKAnnotation {
         if title.isEmpty || body.isEmpty || rateing < 0 || rateing > 5 {
             return nil
         }
-        self.date = Date()
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
         self.rateing = rateing
         self.entryTitle = title
         self.entryBody = body
-        self.photo = photo
+        self.photoData = photo?.jpegData(compressionQuality: 1.0)
         self.latitude = latitude
         self.longitude = longitude
     }
@@ -41,7 +42,7 @@ class JournalEntry: NSObject, MKAnnotation {
     }
     
     var title: String? {
-        date.formatted(.dateTime.year().month().day())
+        dateString
     }
     
     var subtitle: String? {
