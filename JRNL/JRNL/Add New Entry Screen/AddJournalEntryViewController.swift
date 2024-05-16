@@ -96,6 +96,19 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate,
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         print("Failed to find user's location: \(error.localizedDescription)")
     }
+    // MARK: - UIImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was privided the following: \(info)")
+        }
+        let smallerImage = selectedImage.preparingThumbnail(of: CGSize(width: 300, height: 300))
+        photoImageView.image = smallerImage
+        dismiss(animated: true)
+    }
     
     // MARK: - Methods
     private func updateSaveButtonState() {
@@ -117,11 +130,10 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate,
             getLocationSwitchLabel.text = "Get location"
         }
     }
-    
     @IBAction func getPhoto(_ sender: UITapGestureRecognizer) {
         let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate.self
-        imagePickerController.sourceType = .photoLibrary //어디서 가져올지 결정
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true)
     }
 }

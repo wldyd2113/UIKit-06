@@ -147,7 +147,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face.smiling" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ADd-JN-K3G">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face.smiling" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ADd-JN-K3G">
                                         <rect key="frame" x="67.5" y="269.5" width="200" height="199"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -199,7 +199,7 @@
                 <exit id="eww-Xj-D84" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="maH-GF-sre">
                     <connections>
-                        <action selector="getPhoto:" destination="L6K-Dk-VRq" id="NCP-up-Nas"/>
+                        <action selector="getPhoto:" destination="L6K-Dk-VRq" id="ZRm-Qw-Fm7"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -480,7 +480,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Wxg-XY-hov"/>
+        <segue reference="MoG-dT-fEU"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="face.smiling" catalog="system" width="128" height="123"/>
