@@ -25,6 +25,7 @@ class JournalEntry: NSObject, MKAnnotation, Codable {
         }
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
+        self.dateString = formatter.string(from: Date())
         self.rateing = rateing
         self.entryTitle = title
         self.entryBody = body
