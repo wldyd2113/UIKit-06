@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class JournalEntry: NSObject, MKAnnotation, Cpdable {
+class JournalEntry: NSObject, MKAnnotation, Codable {
     // MARK: - Properties
     let dateString: String
     let rateing: Int

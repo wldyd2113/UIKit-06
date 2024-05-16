@@ -24,8 +24,9 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let journalCell = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as! JournalListTableViewCell
         let journalEntries = SharedData.shared.getJournalEntry(index: indexPath.row)
-        journalCell.photoImageView.image = journalEntries.photo
-        journalCell.dateLable.text = journalEntries.date.formatted(.dateTime.year().month().day())
+        if let photoData = journalEntries.photoData {
+            journalCell.photoImageView.image = UIImage(data: photoData)
+        }
         journalCell.titleLable.text = journalEntries.entryTitle
         return journalCell
     }
