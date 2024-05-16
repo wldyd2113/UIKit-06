@@ -14,6 +14,7 @@
 		3764AF842BE9F86000A21A1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3764AF832BE9F86000A21A1B /* Assets.xcassets */; };
 		3764AF872BE9F86000A21A1B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3764AF862BE9F86000A21A1B /* Base */; };
 		3B58B3C42BF587D800DF5ABC /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B58B3C32BF587D800DF5ABC /* SharedData.swift */; };
+		3B58B3C62BF5BDBF00DF5ABC /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B58B3C52BF5BDBF00DF5ABC /* RatingView.swift */; };
 		3B79D7082BF3283900F0F6A9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B79D7072BF3283900F0F6A9 /* MapViewController.swift */; };
 		3B80F8422BEDB8CE00F35E0B /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B80F8412BEDB8CE00F35E0B /* JournalEntry.swift */; };
 		3B80F8442BEDC18800F35E0B /* JournalListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B80F8432BEDC18800F35E0B /* JournalListTableViewCell.swift */; };
@@ -31,6 +32,7 @@
 		3764AF862BE9F86000A21A1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3764AF882BE9F86000A21A1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B58B3C32BF587D800DF5ABC /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
+		3B58B3C52BF5BDBF00DF5ABC /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		3B79D7072BF3283900F0F6A9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3B80F8412BEDB8CE00F35E0B /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 		3B80F8432BEDC18800F35E0B /* JournalListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListTableViewCell.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				3764AF7A2BE9F85F00A21A1B /* AppDelegate.swift */,
 				3764AF7C2BE9F85F00A21A1B /* SceneDelegate.swift */,
 				3B80F83F2BEDB86F00F35E0B /* Model */,
+				3B80F8402BEDB88400F35E0B /* View */,
 				3B80F83E2BEDB7AE00F35E0B /* Jouranl List Screen */,
 				3B80F8452BEDDCDB00F35E0B /* Add New Entry Screen */,
 				3B80F8482BEE019C00F35E0B /* Entry Detail Scene */,
@@ -94,7 +97,6 @@
 		3B80F83E2BEDB7AE00F35E0B /* Jouranl List Screen */ = {
 			isa = PBXGroup;
 			children = (
-				3B80F8402BEDB88400F35E0B /* View */,
 				3764AF7E2BE9F85F00A21A1B /* JournalListViewController.swift */,
 			);
 			path = "Jouranl List Screen";
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				3B80F8432BEDC18800F35E0B /* JournalListTableViewCell.swift */,
+				3B58B3C52BF5BDBF00DF5ABC /* RatingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				3B58B3C42BF587D800DF5ABC /* SharedData.swift in Sources */,
 				3764AF7F2BE9F85F00A21A1B /* JournalListViewController.swift in Sources */,
 				3764AF7B2BE9F85F00A21A1B /* AppDelegate.swift in Sources */,
+				3B58B3C62BF5BDBF00DF5ABC /* RatingView.swift in Sources */,
 				3B80F8422BEDB8CE00F35E0B /* JournalEntry.swift in Sources */,
 				3B80F8442BEDC18800F35E0B /* JournalListTableViewCell.swift in Sources */,
 				3764AF7D2BE9F85F00A21A1B /* SceneDelegate.swift in Sources */,
