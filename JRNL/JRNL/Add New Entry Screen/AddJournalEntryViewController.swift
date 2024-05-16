@@ -48,7 +48,7 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
         let rating = ratingView.rating
         let lat = currentLocation?.coordinate.latitude
         let long = currentLocation?.coordinate.longitude
-        newJournalEntry = JournalEntry(rateing: rating, title: title,
+        newJournalEntry = JournalEntry(rating: rating, title: title,
                                        body: body, photo: photo,
                                        latitude: lat, longitude: long)
     }

@@ -8,7 +8,7 @@
 import UIKit
 
 class RatingView: UIStackView {
-    private var ratingButtons = [UIButton()]
+    private var ratingButtons: [UIButton] = []
     var rating = 0 {
         didSet {
             updateButtonSelectionState()
@@ -43,7 +43,7 @@ class RatingView: UIStackView {
             button.translatesAutoresizingMaskIntoConstraints = false
 //            button.widthAnchor.constraint(equalToConstant: buttonSize.width).isActive = true //isActive로 프로퍼티를 변화시킬 수 있음
 //            button.heightAnchor.constraint(equalToConstant: buttonSize.height).isActive = true
-            button.addTarget(self, action: #selector(ratingButtonTapped(button:)), for: .touchUpInside)
+            button.addTarget(self, action: #selector(ratingButtonTapped(button:)), for: .touchDown)
             addArrangedSubview(button)
             ratingButtons.append(button)
 

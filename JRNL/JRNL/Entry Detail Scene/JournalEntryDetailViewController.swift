@@ -17,13 +17,13 @@ class JournalEntryDetailViewController: UITableViewController {
     @IBOutlet var mapImageView: UIImageView!
     
     @IBOutlet var ratingView: RatingView!
-    
+
     var selectedJournalEntry: JournalEntry?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         dateLabel.text = selectedJournalEntry?.dateString
-        ratingView.rating = selectedJournalEntry?.rateing ?? 0
+        ratingView.rating = selectedJournalEntry?.rating ?? 0
         titleLabel.text = selectedJournalEntry?.entryTitle
         bodyTextView.text = selectedJournalEntry?.entryBody
         if let photoData = selectedJournalEntry?.photoData {
