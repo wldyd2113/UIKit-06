@@ -17,6 +17,7 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
     
     @IBOutlet var getLocationSwitch: UISwitch!
     @IBOutlet var getLocationSwitchLabel: UILabel!
+    
     @IBOutlet var ratingView: RatingView!
     
     
