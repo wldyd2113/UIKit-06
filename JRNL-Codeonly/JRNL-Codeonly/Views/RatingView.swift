@@ -17,8 +17,13 @@ class RatingView: UIStackView {
         super.init(coder: coder)
         setupButton()
     }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupButton()
+    }
     
     private func setupButton() {
+        self.axis = .horizontal
         for button in ratingButtons {
             removeArrangedSubview(button)
             button.removeFromSuperview() //버튼을 지우는 작업
