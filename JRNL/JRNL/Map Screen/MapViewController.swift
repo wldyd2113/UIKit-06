@@ -28,7 +28,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         locationManger.requestLocation()
     }
     
-    // MARK: - CLLocationManagerDelegate
+        // MARK: - CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let myLocation = locations.first {
             let lat = myLocation.coordinate.latitude
