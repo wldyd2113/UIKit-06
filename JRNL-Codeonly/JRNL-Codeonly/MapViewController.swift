@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let locationManager = CLLocationManager()
     
@@ -17,6 +17,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
+        mapView.delegate = self
         mapView.translatesAutoresizingMaskIntoConstraints = false
         return mapView
     }()
@@ -56,6 +57,25 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         print("Failed to find user's location: \(error.localizedDescription)")
+    }
+    
+    //MARK: - MKMapViewDelegate
+    func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
+        let identifier = "mapAnnotation"
+        if annotation is JournalEntry {
+            if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
+                annotationView.annotation = annotation
+                return annotationView
+            }
+            else {
+                let annotaionView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                annotaionView.canShowCallout = true
+                let calloutButton = UIButton(type: .detailDisclosure)
+                annotaionView.rightCalloutAccessoryView = calloutButton
+                return annotaionView
+            }
+        }
+        return nil
     }
     
     
