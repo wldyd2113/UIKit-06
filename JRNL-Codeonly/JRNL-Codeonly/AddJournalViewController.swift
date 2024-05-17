@@ -24,7 +24,6 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
             updateSaveButtonState()
         }
     }
-    
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     
@@ -54,7 +53,7 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
         let switchComponent = UISwitch()
         switchComponent.isOn = false
         switchComponent.addTarget(self, action: #selector(valueChanged(sender:)), for: .valueChanged)
-        print(switchComponent.tag)
+
         let labelComponent = UILabel()
         labelComponent.text = "Get Location"
         labelComponent.tag = LABEL_VIEW_TAG
@@ -68,7 +67,7 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
     private lazy var titleTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Journal Title"
-        textField.addTarget(self, action: #selector(textChanged(textField:.)), for: .editingChanged)
+        textField.addTarget(self, action: #selector(textChanged(textField:)), for: .editingChanged)
         return textField
     }()
     
@@ -85,15 +84,21 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
         return imageView
     }()
     
+    private lazy var saveButton: UIBarButtonItem = {
+        return UIBarButtonItem(barButtonSystemItem: .save,
+                               target: self,
+                               action: #selector(save))
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "New Entry"
         view.backgroundColor = .white
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
-                                                            target: self,
-                                                            action: #selector(save))
+        navigationItem.rightBarButtonItem = saveButton
+        
+        saveButton.isEnabled = false
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                            target: self,
@@ -142,28 +147,34 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
     }
     
     // MARK: - UITextViewDelegate
+    func textViewDidChange(_ textView: UITextView) {
+        updateSaveButtonState()
+    }
+    
+    
+    // MARK: Methods
     func updateSaveButtonState() {
         if locationSwitchIsOn {
             guard let title = titleTextField.text, !title.isEmpty,
                   let body = bodyTextView.text, !body.isEmpty,
                   let _ = currentLocation else {
-                navigationItem.rightBarButtonItem?.isEnabled = false
-            }
-            navigationItem.rightBarButtonItem?.isEnabled = true
-        }
-        else {
-            guard let title = titleTextField.text, !title.isEmpty,
-                  let body = bodyTextView.text, !body.isEmpty,
-                  let _ = currentLocation else {
-                navigationItem.rightBarButtonItem?.isEnabled = false
+                saveButton.isEnabled = false
                 return
             }
+            saveButton.isEnabled = true
+        } else {
+            guard let title = titleTextField.text, !title.isEmpty,
+                  let body = bodyTextView.text, !body.isEmpty else {
+                saveButton.isEnabled = false
+                return
+            }
+            saveButton.isEnabled = true
         }
     }
-    @objc func textChaged(textField: UITextField) {
+    
+    @objc func textChanged(textField: UITextField) {
         updateSaveButtonState()
     }
-    
     
     @objc func save() {
         guard let title = titleTextField.text, !title.isEmpty,
@@ -203,7 +214,6 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
     
     
     // MARK: - CLLocationManagerDelegate
-    //위치정보를 가져오는데 성공하면
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let myCurrentLocation = locations.first {
             currentLocation = myCurrentLocation
@@ -213,7 +223,7 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
             updateSaveButtonState()
         }
     }
-    //위치정보를 가져오지 못하는 호출하는 함수
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         print("Failed to find user's location: \(error.localizedDescription)")
     }
