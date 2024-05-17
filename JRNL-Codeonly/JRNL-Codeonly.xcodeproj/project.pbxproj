@@ -66,8 +66,7 @@
 		3B2881E42BF191EA009E5D20 /* JRNL-Codeonly */ = {
 			isa = PBXGroup;
 			children = (
-				3B88C9982BF71F1C006A42B4 /* SharedData.swift */,
-				3B2882052BF1EB95009E5D20 /* JournalEntry.swift */,
+				3B88C99A2BF721BB006A42B4 /* Model */,
 				3B2881E52BF191EA009E5D20 /* AppDelegate.swift */,
 				3B2881E72BF191EA009E5D20 /* SceneDelegate.swift */,
 				3B2882022BF1B5A3009E5D20 /* Journal List Screen */,
@@ -88,6 +87,15 @@
 				3B2882002BF1B587009E5D20 /* JournalListTableViewCell.swift */,
 			);
 			path = "Journal List Screen";
+			sourceTree = "<group>";
+		};
+		3B88C99A2BF721BB006A42B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B88C9982BF71F1C006A42B4 /* SharedData.swift */,
+				3B2882052BF1EB95009E5D20 /* JournalEntry.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
