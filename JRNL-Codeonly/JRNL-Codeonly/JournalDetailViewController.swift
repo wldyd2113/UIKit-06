@@ -142,7 +142,7 @@ class JournalDetailViewController: UITableViewController {
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.contentView.addSubview(bodyTextView)
-            bodyTextView.text = journalEntry.entryTitle
+            bodyTextView.text = journalEntry.entryBody
             let marginGuide = cell.contentView.layoutMarginsGuide
             NSLayoutConstraint.activate([
                 bodyTextView.topAnchor.constraint(equalTo: marginGuide.topAnchor),

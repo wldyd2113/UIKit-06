@@ -7,7 +7,7 @@
 
 import UIKit
 //delgate: 연결고리 같은거 
-class JournalListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddJournalContrillerDelegate {
+class JournalListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddJournalControllerDelegate {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         return tableView
