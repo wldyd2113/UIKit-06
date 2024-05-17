@@ -11,22 +11,28 @@ import CoreLocation
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     
-    let locationManger = CLLocationManager()
-
+    let locationManager = CLLocationManager()
+    
+    var sampleJournalEntryData = SampleJournalEntryData()
+    
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
         return mapView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        sampleJournalEntryData.createSampleJournalEntryData()
+        mapView.addAnnotations(sampleJournalEntryData.journalEntries)
         
         view.backgroundColor = .white
-        locationManger.delegate = self
-        locationManger.requestWhenInUseAuthorization()
+
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
         self.navigationItem.title = "Loading..."
-        locationManger.requestLocation()
+        locationManager.requestLocation()
+        
         view.addSubview(mapView)
         
         let safeArea = view.safeAreaLayoutGuide
@@ -52,7 +58,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         print("Failed to find user's location: \(error.localizedDescription)")
     }
     
+    
+    // MARK: - Methods
     func setInitialRegion(lat: CLLocationDegrees, long: CLLocationDegrees) -> MKCoordinateRegion {
-        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: long), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: long),
+                           span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     }
+
 }
