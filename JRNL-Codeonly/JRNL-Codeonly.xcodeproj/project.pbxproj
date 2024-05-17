@@ -18,6 +18,7 @@
 		3B2882012BF1B587009E5D20 /* JournalListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2882002BF1B587009E5D20 /* JournalListTableViewCell.swift */; };
 		3B2882062BF1EB95009E5D20 /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2882052BF1EB95009E5D20 /* JournalEntry.swift */; };
 		3B88C9992BF71F1C006A42B4 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B88C9982BF71F1C006A42B4 /* SharedData.swift */; };
+		3B88C99E2BF73D83006A42B4 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B88C99D2BF73D83006A42B4 /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		3B2882002BF1B587009E5D20 /* JournalListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListTableViewCell.swift; sourceTree = "<group>"; };
 		3B2882052BF1EB95009E5D20 /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 		3B88C9982BF71F1C006A42B4 /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
+		3B88C99D2BF73D83006A42B4 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				3B2881E92BF191EA009E5D20 /* JournalListViewController.swift */,
+				3B88C99D2BF73D83006A42B4 /* RatingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				3B88C9992BF71F1C006A42B4 /* SharedData.swift in Sources */,
 				3B2881EA2BF191EA009E5D20 /* JournalListViewController.swift in Sources */,
 				3B2881FE2BF1B3ED009E5D20 /* JournalDetailViewController.swift in Sources */,
+				3B88C99E2BF73D83006A42B4 /* RatingView.swift in Sources */,
 				3B2882062BF1EB95009E5D20 /* JournalEntry.swift in Sources */,
 				3B2882012BF1B587009E5D20 /* JournalListTableViewCell.swift in Sources */,
 				3B2881E62BF191EA009E5D20 /* AppDelegate.swift in Sources */,
