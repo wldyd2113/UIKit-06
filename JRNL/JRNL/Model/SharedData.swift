@@ -33,6 +33,12 @@ class SharedData {
         journalEntries.append(newJournalEntry)
     }
     
+    func removeSelectedJournalEntry(_ selectedJournalEntry: JournalEntry) {
+        journalEntries.removeAll {
+            $0.key == selectedJournalEntry.key //키와 선택한 키 값이 같으면 
+        }
+    }
+    
     func removeJournalEntry(index: Int) {
         journalEntries.remove(at: index)
     }
