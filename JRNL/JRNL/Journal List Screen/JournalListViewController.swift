@@ -7,7 +7,7 @@
 
 import UIKit
 
-class JournalListViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchResultsUpdating {
+class JournalListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchResultsUpdating {
     // MARK: - Properties
     @IBOutlet var collectionView: UICollectionView!
     let search = UISearchController(searchResultsController: nil)
@@ -17,13 +17,28 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource,UI
         super.viewDidLoad()
         SharedData.shared.loadJournalEntriesData()
         
+        setupCollectionView()
+        
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Search titles"
         navigationItem.searchController = search
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    func setupCollectionView() {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 10
+        collectionView.collectionViewLayout = flowLayout
+    }
 
-    // MARK: - UITableViewDataSource
+    // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if search.isActive {
             return self.filteredTableData.count
@@ -44,7 +59,7 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource,UI
         
         if let photoData = journalEntry.photoData {
             journalCell.photoImageView.image = UIImage(data: photoData)
-        }        
+        }
         journalCell.dateLabel.text = journalEntry.dateString
         journalCell.titleLabel.text = journalEntry.entryTitle
         return journalCell
@@ -52,14 +67,14 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource,UI
     
     // MARK: - UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        
         let config = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (elements) -> UIMenu? in
             let delete = UIAction(title: "Delete") { [weak self] (action) in
                 if let search = self?.search, search.isActive,
                    let selectedJournalEntry = self?.filteredTableData[indexPath.item] {
                     self?.filteredTableData.remove(at: indexPath.item)
                     SharedData.shared.removeSelectedJournalEntry(selectedJournalEntry)
-                }
-                else {
+                } else {
                     SharedData.shared.removeJournalEntry(index: indexPath.item)
                 }
                 SharedData.shared.saveJournalEntriesData()
@@ -68,6 +83,22 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource,UI
             return UIMenu(title: "", image: nil, identifier: nil, options: [], children: [delete])
         }
         return config
+    }
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var columns: CGFloat
+        if (traitCollection.horizontalSizeClass == .compact) {
+            columns = 1
+        } else {
+            columns = 2
+        }
+        let viewWidth = collectionView.frame.width
+        let inset = 10.0
+        let contentWidth = viewWidth - inset * (columns + 1)
+        let cellWidth = contentWidth / columns
+        let cellHeight = 90.0
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     
     // MARK: - UISearchResultsUpdating
@@ -125,4 +156,3 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource,UI
     }
 
 }
-
