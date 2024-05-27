@@ -34,11 +34,19 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let journalCell = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as! JournalListTableViewCell
-        let journalEntries = SharedData.shared.getJournalEntry(index: indexPath.row)
-        if let photoData = journalEntries.photoData {
+        let journalEntry: JournalEntry
+
+        if self.search.isActive {
+            journalEntry = filteredTableData[indexPath.row]
+        }
+        else {
+            journalEntry = SharedData.shared.getJournalEntry(index: indexPath.row)
+        }
+        
+        if let photoData = journalEntry.photoData {
             journalCell.photoImageView.image = UIImage(data: photoData)
         }
-        journalCell.titleLable.text = journalEntries.entryTitle
+        journalCell.titleLable.text = journalEntry.entryTitle
         return journalCell
     }
     
@@ -56,7 +64,13 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         guard let searchBarText = searchController.searchBar.text else {
             return
         }
-        print(searchBarText)
+        filteredTableData.removeAll()
+        for journalEntry in SharedData.shared.getAllJournalEntries() {
+            if journalEntry.entryTitle.lowercased().contains(searchBarText.lowercased()) {
+                filteredTableData.append(journalEntry)
+            }
+        }
+        self.tableView.reloadData()
     }
     
     // MARK: - Methods
