@@ -2,37 +2,43 @@
 //  RatingView.swift
 //  JRNL-Codeonly
 //
-//  Created by 차지용 on 5/17/24.
+//  Created by Jungman Bae on 5/17/24.
 //
 
 import UIKit
 
 class RatingView: UIStackView {
     private var ratingButtons: [UIButton] = []
-    var rating = 0
+    var rating = 0 {
+        didSet {
+            updateButtonSelectionStates()
+        }
+    }
     private let buttonSize = CGSize(width: 44, height: 44)
     private let buttonCount = 5
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
-        setupButton()
-    }
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupButton()
+        setupButtons()
     }
     
-    private func setupButton() {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupButtons()
+    }
+    
+    private func setupButtons() {       
         self.axis = .horizontal
         for button in ratingButtons {
             removeArrangedSubview(button)
-            button.removeFromSuperview() //버튼을 지우는 작업
+            button.removeFromSuperview()
         }
-        ratingButtons.removeAll() //배열에서 버튼 다 지움
-        let filledStar = UIImage(systemName: "star.fill")
+        ratingButtons.removeAll()
+        let filledStar = UIImage(systemName:"star.fill" )
         let emptyStar = UIImage(systemName: "star")
-        let highlightedStar = UIImage(systemName: "star.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal)
-        
+        let highlightedStar = UIImage(systemName: "star.fill")?
+            .withTintColor(.red,
+                           renderingMode: .alwaysOriginal)
         for _ in 0..<buttonCount {
             let button = UIButton()
             button.setImage(emptyStar, for: .normal)
@@ -59,10 +65,8 @@ class RatingView: UIStackView {
         let selectedRating = index + 1
         if selectedRating == rating {
             rating = 0
-        }
-        else {
+        } else {
             rating = selectedRating
         }
     }
-
 }

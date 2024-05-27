@@ -2,14 +2,13 @@
 //  SharedData.swift
 //  JRNL-Codeonly
 //
-//  Created by 차지용 on 5/17/24.
+//  Created by Jungman Bae on 5/17/24.
 //
 
 import UIKit
 
 class SharedData {
     static let shared = SharedData()
-    
     private var journalEntries: [JournalEntry]
     
     private init() {
@@ -19,20 +18,20 @@ class SharedData {
     func numberOfJournalEntries() -> Int {
         journalEntries.count
     }
-
+    
     func getJournalEntry(index: Int) -> JournalEntry {
         journalEntries[index]
     }
-
+    
     func getAllJournalEntries() -> [JournalEntry] {
         let readOnlyJournalEntries = journalEntries
         return readOnlyJournalEntries
     }
-
+    
     func addJournalEntry(newJournalEntry: JournalEntry) {
         journalEntries.append(newJournalEntry)
     }
-
+    
     func removeJournalEntry(index: Int) {
         journalEntries.remove(at: index)
     }
@@ -45,8 +44,8 @@ class SharedData {
     func loadJournalEntriesData() {
         let fileURL = getDocumentDirectory().appendingPathComponent("journalEntriesData.json")
         do {
-            let data =  try Data(contentsOf: fileURL)
-            let journalEntriesData = try JSONDecoder().decode([JournalEntry].self, from:data)
+            let data = try Data(contentsOf: fileURL)
+            let journalEntriesData = try JSONDecoder().decode([JournalEntry].self, from: data)
             journalEntries = journalEntriesData
         } catch {
             print("Failed to read JSON data: \(error.localizedDescription)")
@@ -64,4 +63,5 @@ class SharedData {
             print("Failed to write JSON data: \(error.localizedDescription)")
         }
     }
+
 }

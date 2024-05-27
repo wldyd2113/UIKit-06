@@ -2,7 +2,7 @@
 //  JournalListTableViewCell.swift
 //  JRNL-Codeonly
 //
-//  Created by 차지용 on 5/13/24.
+//  Created by Jungman Bae on 5/13/24.
 //
 
 import UIKit
@@ -67,10 +67,9 @@ class JournalListTableViewCell: UITableViewCell {
     }
     
     // MARK: - configureCell
-    //뷰에다가 연결해줌
     func configureCell(journalEntry: JournalEntry) {
         thumbnailView.image = journalEntry.photo
-        dateLabel.text = journalEntry.date.formatted(.dateTime.year().month().day())
+        dateLabel.text  = journalEntry.date.formatted(.dateTime.year().month().day())
         titleLabel.text = journalEntry.entryTitle
     }
 }

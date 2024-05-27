@@ -2,7 +2,7 @@
 //  MapViewController.swift
 //  JRNL-Codeonly
 //
-//  Created by 차지용 on 5/13/24.
+//  Created by Jungman Bae on 5/13/24.
 //
 
 import UIKit
@@ -13,17 +13,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     let locationManager = CLLocationManager()
     
-    
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.delegate = self
         mapView.translatesAutoresizingMaskIntoConstraints = false
         return mapView
     }()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .white
 
         locationManager.delegate = self
@@ -67,24 +65,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         print("Failed to find user's location: \(error.localizedDescription)")
     }
     
-    //MARK: - MKMapViewDelegate
+    // MARK: - MKMapViewDelegate
     func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
         let identifier = "mapAnnotation"
         if annotation is JournalEntry {
             if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
                 annotationView.annotation = annotation
                 return annotationView
-            }
-            else {
-                let annotaionView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                annotaionView.canShowCallout = true
+            } else {
+                let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                annotationView.canShowCallout = true
                 let calloutButton = UIButton(type: .detailDisclosure)
-                annotaionView.rightCalloutAccessoryView = calloutButton
-                return annotaionView
+                annotationView.rightCalloutAccessoryView = calloutButton
+                return annotationView
             }
         }
         return nil
     }
+    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let journalEntry = view.annotation as? JournalEntry {
             let journalDetailViewController = JournalDetailViewController(journalEntry: journalEntry)

@@ -1,22 +1,14 @@
-//
-//  ViewController.swift
-//  JRNL-Codeonly
-//
-//  Created by 차지용 on 5/13/24.
-//
-
 import UIKit
-//delgate: 연결고리 같은거 
+
 class JournalListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddJournalControllerDelegate {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         return tableView
-    }() //초기화해줌
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(JournalListTableViewCell.self, forCellReuseIdentifier: "journalCell")
@@ -40,16 +32,15 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
                                                             action: #selector(addJournal))
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         SharedData.shared.loadJournalEntriesData()
     }
     
-    // MARK: - UITableViewDataDource
+    // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         SharedData.shared.numberOfJournalEntries()
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as! JournalListTableViewCell
@@ -76,6 +67,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         90
     }
+
     
     // MARK: - Methods
     @objc private func addJournal() {
@@ -92,4 +84,3 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     }
 
 }
-

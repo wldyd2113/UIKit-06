@@ -7,7 +7,9 @@
 
 import UIKit
 
-class JournalListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class JournalListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
+
+    
     //MARK: - Properties
     @IBOutlet var tableView: UITableView!
     
@@ -38,6 +40,11 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
             SharedData.shared.saveJournalEntiresData()
             tableView.reloadData()
         }
+    }
+    
+    // MARK: - UISearchResultsUpdating
+    func updateSearchResults(for searchController: UISearchController) {
+        <#code#>
     }
     
     // MARK: - Methods

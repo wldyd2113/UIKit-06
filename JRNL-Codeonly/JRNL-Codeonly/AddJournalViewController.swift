@@ -2,7 +2,7 @@
 //  AddJournalViewController.swift
 //  JRNL-Codeonly
 //
-//  Created by 차지용 on 5/13/24.
+//  Created by Jungman Bae on 5/13/24.
 //
 
 import UIKit
@@ -12,7 +12,8 @@ protocol AddJournalControllerDelegate: NSObject {
     func saveJournalEntry(_ journalEntry: JournalEntry)
 }
 
-class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UITextViewDelegate {
+class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UITextViewDelegate,
+                                UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     weak var delegate: AddJournalControllerDelegate?
 //    의존 분리를 위해 직접 뷰 컨트롤러를 담기보다, 델리게이트 프로토콜을 이용한다.
 //    weak var journalListViewController: JournalListViewController?
@@ -80,6 +81,9 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "face.smiling")
+        imageView.isUserInteractionEnabled = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        imageView.addGestureRecognizer(tapGestureRecognizer)
         return imageView
     }()
     
@@ -88,7 +92,7 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
                                target: self,
                                action: #selector(save))
     }()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -150,8 +154,29 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
         updateSaveButtonState()
     }
     
+    // MARK: - UIImagePickerControllerDelegate
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image: \(info)")
+        }
+        let smallerImage = selectedImage.preparingThumbnail(of: CGSize(width: 300, height: 300))
+        imageView.image = smallerImage
+        dismiss(animated: true)
+    }
     
-    // MARK: Methods
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
+    }
+    
+    
+    // MARK: - Methods
+    @objc func imageTapped() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true)
+    }
+
     func updateSaveButtonState() {
         if locationSwitchIsOn {
             guard let title = titleTextField.text, !title.isEmpty,
@@ -180,12 +205,13 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
               let body = bodyTextView.text, !body.isEmpty else {
             return
         }
+        
         let rating = ratingView.rating
         let lat = currentLocation?.coordinate.latitude
         let long = currentLocation?.coordinate.longitude
         
         let journalEntry = JournalEntry(rating: rating, title: title, body: body,
-                                        photo: UIImage(systemName: "face.smiling")?.withRenderingMode(.alwaysOriginal),
+                                        photo: imageView.image,
                                         latitude: lat,
                                         longitude: long)!
         delegate?.saveJournalEntry(journalEntry)

@@ -1,8 +1,8 @@
 //
 //  JournalEntry.swift
-//  JRNL-Codeonly
+//  JRNL
 //
-//  Created by 차지용 on 5/13/24.
+//  Created by Jungman Bae on 5/10/24.
 //
 
 import UIKit
@@ -16,7 +16,7 @@ class JournalEntry: NSObject, MKAnnotation, Codable {
     let entryBody: String
     var photo: UIImage? {
         get {
-            guard let data =  photoData else { return nil }
+            guard let data = photoData else { return nil }
             return UIImage(data: data)
         }
         set {
@@ -42,6 +42,7 @@ class JournalEntry: NSObject, MKAnnotation, Codable {
         self.latitude = latitude
         self.longitude = longitude
     }
+    
     var coordinate: CLLocationCoordinate2D {
         guard let lat = latitude,
               let long = longitude else {
@@ -49,6 +50,7 @@ class JournalEntry: NSObject, MKAnnotation, Codable {
         }
         return CLLocationCoordinate2D(latitude: lat, longitude: long)
     }
+    
     var title: String? {
         date.formatted(.dateTime.year().month().day())
     }
@@ -84,11 +86,10 @@ class JournalEntry: NSObject, MKAnnotation, Codable {
     }
 }
 
-
 // MARK: - Sample data
 struct SampleJournalEntryData {
     var journalEntries: [JournalEntry] = []
-
+    
     mutating func createSampleJournalEntryData() {
         let photo1 = UIImage(systemName: "sun.max")
         let photo2 = UIImage(systemName: "cloud")
@@ -98,15 +99,16 @@ struct SampleJournalEntryData {
             fatalError("Unable to instantiate journalEntry1")
         }
         guard let journalEntry2 = JournalEntry(rating: 0, title: "Bad",
-                                               body: "Today is bad day", photo: photo2, latitude: 37.493912, longitude: 126.826153) else {
+                                               body: "Today is bad day", photo: photo2,
+        latitude: 37.3318, longitude: -122.0312) else {
             fatalError("Unable to instantiate journalEntry2")
         }
         guard let journalEntry3 = JournalEntry(rating: 3, title: "Ok",
                                                body: "Today is Ok day", photo: photo3) else {
             fatalError("Unable to instantiate journalEntry3")
         }
-
+        
         journalEntries += [journalEntry1, journalEntry2, journalEntry3]
-
+        
     }
 }

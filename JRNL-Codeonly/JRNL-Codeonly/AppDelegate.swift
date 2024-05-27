@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  JRNL-Codeonly
 //
-//  Created by 차지용 on 5/13/24.
+//  Created by Jungman Bae on 5/13/24.
 //
 
 import UIKit
