@@ -12,10 +12,19 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     
     //MARK: - Properties
     @IBOutlet var tableView: UITableView!
+    let search = UISearchController(searchResultsController: nil)
+    var filteredTableData: [JournalEntry] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         SharedData.shared.loadJournalEntriesData()
+        
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Search titles"
+        navigationItem.searchController = search
+        
     }
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,7 +53,10 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     
     // MARK: - UISearchResultsUpdating
     func updateSearchResults(for searchController: UISearchController) {
-        <#code#>
+        guard let searchBarText = searchController.searchBar.text else {
+            return
+        }
+        print(searchBarText)
     }
     
     // MARK: - Methods
