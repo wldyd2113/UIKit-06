@@ -28,18 +28,22 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     }
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        SharedData.shared.numberOfJournalEntries()
+        if search.isActive {
+            return self.filteredTableData.count
+        } else {
+            return SharedData.shared.numberOfJournalEntries()
+        }
+    
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let journalCell = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as! JournalListTableViewCell
-        let journalEntry: JournalEntry
 
+        let journalEntry: JournalEntry
         if self.search.isActive {
             journalEntry = filteredTableData[indexPath.row]
-        }
-        else {
+        } else {
             journalEntry = SharedData.shared.getJournalEntry(index: indexPath.row)
         }
         
