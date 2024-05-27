@@ -2,7 +2,7 @@
 //  JournalListTableViewCell.swift
 //  JRNL
 //
-//  Created by 차지용 on 5/10/24.
+//  Created by Jungman Bae on 5/10/24.
 //
 
 import UIKit
@@ -10,8 +10,8 @@ import UIKit
 class JournalListCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var photoImageView: UIImageView!
-    @IBOutlet var dateLable: UILabel!
-    @IBOutlet var titleLable: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

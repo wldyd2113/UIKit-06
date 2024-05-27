@@ -2,7 +2,7 @@
 //  RatingView.swift
 //  JRNL
 //
-//  Created by 차지용 on 5/16/24.
+//  Created by Jungman Bae on 5/16/24.
 //
 
 import UIKit
@@ -23,7 +23,7 @@ class RatingView: UIStackView {
         setupButtons()
     }
     
-    // MARK - Private Methods
+    // MARK: - Private Methods
     private func setupButtons() {
         for button in ratingButtons {
             removeArrangedSubview(button)
@@ -32,7 +32,9 @@ class RatingView: UIStackView {
         ratingButtons.removeAll()
         let filledStar = UIImage(systemName: "star.fill")
         let emptyStar = UIImage(systemName: "star")
-        let highlightedStar = UIImage(systemName: "star.fill")? .withTintColor(.red, renderingMode: .alwaysOriginal)
+        let highlightedStar = UIImage(systemName: "star.fill")?
+            .withTintColor(.red,
+                           renderingMode: .alwaysOriginal)
         
         for _ in 0..<buttonCount {
             let button = UIButton()
@@ -41,12 +43,11 @@ class RatingView: UIStackView {
             button.setImage(highlightedStar, for: .highlighted)
             button.setImage(highlightedStar, for: [.highlighted, .selected])
             button.translatesAutoresizingMaskIntoConstraints = false
-//            button.widthAnchor.constraint(equalToConstant: buttonSize.width).isActive = true //isActive로 프로퍼티를 변화시킬 수 있음
+//            button.widthAnchor.constraint(equalToConstant: buttonSize.width).isActive = true
 //            button.heightAnchor.constraint(equalToConstant: buttonSize.height).isActive = true
             button.addTarget(self, action: #selector(ratingButtonTapped(button:)), for: .touchDown)
             addArrangedSubview(button)
             ratingButtons.append(button)
-
         }
     }
     
@@ -63,10 +64,8 @@ class RatingView: UIStackView {
         let selectedRating = index + 1
         if selectedRating == rating {
             rating = 0
-        }
-        else {
+        } else {
             rating = selectedRating
         }
     }
-
 }

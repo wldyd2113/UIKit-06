@@ -2,30 +2,31 @@
 //  MapViewController.swift
 //  JRNL
 //
-//  Created by 차지용 on 5/14/24.
+//  Created by Jungman Bae on 5/14/24.
 //
 
 import UIKit
 import CoreLocation
 import MapKit
+
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet var mapView: MKMapView!
-    let locationManger = CLLocationManager()
+    let locationManager = CLLocationManager()
     var selectedJournalEntry: JournalEntry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManger.delegate = self
-        locationManger.requestWhenInUseAuthorization()
-        locationManger.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         self.navigationItem.title = "Loading..."
         mapView.delegate = self
     }
     
     override func viewIsAppearing(_ animated: Bool) {
         super.viewIsAppearing(animated)
-        locationManger.requestLocation()
+        locationManager.requestLocation()
     }
     
     // MARK: - CLLocationManagerDelegate
@@ -53,7 +54,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             } else {
                 let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 annotationView.canShowCallout = true
-                let calloutButton = UIButton(type: .detailDisclosure)
+                let calloutButton = UIButton(type: .detailDisclosure) 
                 annotationView.rightCalloutAccessoryView = calloutButton
                 return annotationView
             }
@@ -61,7 +62,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         return nil
     }
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl) {
         guard let annotation = mapView.selectedAnnotations.first else {
             return
         }
@@ -83,8 +85,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     // MARK: - Methods
     func setInitialRegion(lat: CLLocationDegrees, long: CLLocationDegrees) -> MKCoordinateRegion {
-        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: long), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        
+        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: long),
+                           span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     }
-
 }

@@ -2,14 +2,16 @@
 //  AddJournalEntryViewController.swift
 //  JRNL
 //
-//  Created by 차지용 on 5/10/24.
+//  Created by Jungman Bae on 5/10/24.
 //
 
 import UIKit
 import CoreLocation
 
-class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, 
-                                        UITextViewDelegate, CLLocationManagerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class AddJournalEntryViewController: UIViewController, UITextFieldDelegate,
+                                     UITextViewDelegate, CLLocationManagerDelegate,
+                                     UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
 
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var bodyTextView: UITextView!
@@ -20,7 +22,6 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate,
     @IBOutlet var getLocationSwitchLabel: UILabel!
     
     @IBOutlet var ratingView: RatingView!
-    
     
     var newJournalEntry: JournalEntry?
     let locationManager = CLLocationManager()
@@ -35,8 +36,6 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate,
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
     }
-    
-    
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -96,6 +95,7 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate,
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         print("Failed to find user's location: \(error.localizedDescription)")
     }
+    
     // MARK: - UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true)
@@ -103,7 +103,7 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate,
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
-            fatalError("Expected a dictionary containing an image, but was privided the following: \(info)")
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
         let smallerImage = selectedImage.preparingThumbnail(of: CGSize(width: 300, height: 300))
         photoImageView.image = smallerImage
@@ -124,12 +124,14 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate,
     @IBAction func getLocationSwitchValueChanged(_ sender: UISwitch) {
         if getLocationSwitch.isOn {
             getLocationSwitchLabel.text = "Getting location..."
-            locationManager.requestLocation() //위치정보를 표시해줌
+            locationManager.requestLocation()
         } else {
             currentLocation = nil
             getLocationSwitchLabel.text = "Get location"
         }
     }
+    
+    
     @IBAction func getPhoto(_ sender: UITapGestureRecognizer) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self

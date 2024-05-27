@@ -2,14 +2,13 @@
 //  SharedData.swift
 //  JRNL
 //
-//  Created by 차지용 on 5/16/24.
+//  Created by Jungman Bae on 5/16/24.
 //
 
 import UIKit
 
 class SharedData {
-    static
-     let shared = SharedData()
+    static let shared = SharedData()
     private var journalEntries: [JournalEntry]
     
     private init() {
@@ -35,7 +34,7 @@ class SharedData {
     
     func removeSelectedJournalEntry(_ selectedJournalEntry: JournalEntry) {
         journalEntries.removeAll {
-            $0.key == selectedJournalEntry.key //키와 선택한 키 값이 같으면 
+            $0.key == selectedJournalEntry.key
         }
     }
     
@@ -43,7 +42,6 @@ class SharedData {
         journalEntries.remove(at: index)
     }
     
-    //파일을 저장하고 읽을수 있게 사용
     func getDocumentDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
@@ -58,11 +56,10 @@ class SharedData {
             journalEntries = journalEntriesData
         } catch {
             print("Failed to read JSON data: \(error.localizedDescription)")
-
         }
     }
     
-    func saveJournalEntiresData() {
+    func saveJournalEntriesData() {
         let pathDirectory = getDocumentDirectory()
         try? FileManager.default.createDirectory(at: pathDirectory, withIntermediateDirectories: true)
         let filePath = pathDirectory.appendingPathComponent("journalEntriesData.json")
@@ -71,7 +68,6 @@ class SharedData {
             try json!.write(to: filePath)
         } catch {
             print("Failed to write JSON data: \(error.localizedDescription)")
-
         }
     }
 }

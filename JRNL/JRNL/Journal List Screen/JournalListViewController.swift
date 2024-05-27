@@ -2,19 +2,16 @@
 //  ViewController.swift
 //  JRNL
 //
-//  Created by 차지용 on 5/7/24.
+//  Created by Jungman Bae on 5/7/24.
 //
 
 import UIKit
 
 class JournalListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
-
-    
-    //MARK: - Properties
+    // MARK: - Properties
     @IBOutlet var tableView: UITableView!
     let search = UISearchController(searchResultsController: nil)
     var filteredTableData: [JournalEntry] = []
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +21,8 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Search titles"
         navigationItem.searchController = search
-        
     }
+
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if search.isActive {
@@ -33,13 +30,12 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         } else {
             return SharedData.shared.numberOfJournalEntries()
         }
-    
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let journalCell = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as! JournalListCollectionViewCell
-
+        
         let journalEntry: JournalEntry
         if self.search.isActive {
             journalEntry = filteredTableData[indexPath.row]
@@ -49,8 +45,9 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         
         if let photoData = journalEntry.photoData {
             journalCell.photoImageView.image = UIImage(data: photoData)
-        }
-        journalCell.titleLable.text = journalEntry.entryTitle
+        }        
+        journalCell.dateLabel.text = journalEntry.dateString
+        journalCell.titleLabel.text = journalEntry.entryTitle
         return journalCell
     }
     
@@ -58,14 +55,13 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if self.search.isActive {
-                let selectedJornalEntry = filteredTableData[indexPath.row]
+                let selectedJournalEntry = filteredTableData[indexPath.row]
                 filteredTableData.remove(at: indexPath.row)
-                SharedData.shared.removeSelectedJournalEntry(selectedJornalEntry)
-            }
-            else {
+                SharedData.shared.removeSelectedJournalEntry(selectedJournalEntry)
+            } else {
                 SharedData.shared.removeJournalEntry(index: indexPath.row)
             }
-            SharedData.shared.saveJournalEntiresData()
+            SharedData.shared.saveJournalEntriesData()
             tableView.reloadData()
         }
     }
@@ -81,8 +77,8 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
 //                filteredTableData.append(journalEntry)
 //            }
 //        }
-        filteredTableData = SharedData.shared.getAllJournalEntries().filter { JournalEntry in
-            JournalEntry.entryTitle.lowercased().contains(searchBarText.lowercased())
+        filteredTableData = SharedData.shared.getAllJournalEntries().filter { journalEntry in
+            journalEntry.entryTitle.lowercased().contains(searchBarText.lowercased())
         }
         self.tableView.reloadData()
     }
@@ -91,15 +87,17 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func unwindNewEntryCancel(segue: UIStoryboardSegue) {
         
     }
-    
     @IBAction func unwindNewEntrySave(segue: UIStoryboardSegue) {
-        if let sourceViewController = segue.source as?
-            AddJournalEntryViewController, let newJournalEntry = sourceViewController.newJournalEntry {
+        if let sourceViewController = segue.source as? AddJournalEntryViewController,
+           let newJournalEntry = sourceViewController.newJournalEntry {
             SharedData.shared.addJournalEntry(newJournalEntry: newJournalEntry)
-            SharedData.shared.saveJournalEntiresData()
+            SharedData.shared.saveJournalEntriesData()
             tableView.reloadData()
+        } else {
+            print("No Entry or Controller")
         }
     }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -121,5 +119,6 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         }
         journalEntryDetailViewController.selectedJournalEntry = selectedJournalEntry
     }
+
 }
 
