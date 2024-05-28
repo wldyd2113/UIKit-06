@@ -10,9 +10,10 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
     var filteredTableData: [JournalEntry] = []
     
     var container: ModelContainer?
-    var context: ModelContainer?
+    var context: ModelContext?
     let descrptor = FetchDescriptor<JournalEntry>(sortBy: [SortDescriptor<JournalEntry>(\.dateString)])
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let _container = try? ModelContainer(for: JournalEntry.self) else {
@@ -126,7 +127,7 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
         self.collectionView.reloadData()
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     func fetchJournalEntries() {
         if let context = self.context,
            let journalEntries = try? context.fetch(descrptor) {
@@ -134,9 +135,8 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
         }
     }
     
-    // MARK: - Methods
     @IBAction func unwindNewEntryCancel(segue: UIStoryboardSegue) {
-        
+
     }
     @IBAction func unwindNewEntrySave(segue: UIStoryboardSegue) {
         if let sourceViewController = segue.source as? AddJournalEntryViewController,
