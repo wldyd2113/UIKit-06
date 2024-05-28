@@ -2,9 +2,9 @@ import UIKit
 import MapKit
 import SwiftData
 
-class JournalEntry: NSObject, MKAnnotation, Codable {
+@Model
+class JournalEntry: NSObject, MKAnnotation {
     // MARK: - Properties
-    var key = UUID().uuidString
     let dateString: String
     let rating: Int
     let entryTitle: String
