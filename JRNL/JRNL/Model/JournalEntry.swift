@@ -1,12 +1,6 @@
-//
-//  JournalEntry.swift
-//  JRNL
-//
-//  Created by Jungman Bae on 5/10/24.
-//
-
 import UIKit
 import MapKit
+import SwiftData
 
 class JournalEntry: NSObject, MKAnnotation, Codable {
     // MARK: - Properties
