@@ -12,6 +12,5 @@ import SwiftUI
 struct JRNLWidgetBundle: WidgetBundle {
     var body: some Widget {
         JRNLWidget()
-        JRNLWidgetLiveActivity()
     }
 }
