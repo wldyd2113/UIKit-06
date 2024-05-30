@@ -2,7 +2,7 @@
 //  JournalMapAnnotation.swift
 //  JRNL
 //
-//  Created by 차지용 on 5/28/24.
+//  Created by Jungman Bae on 5/28/24.
 //
 
 import Foundation
@@ -15,7 +15,7 @@ class JournalMapAnnotation: NSObject, MKAnnotation {
     let latitude: Double
     let longitude: Double
     let journal: JournalEntry
-
+    
     init(journal: JournalEntry) {
         self.dateString = journal.dateString
         self.entryTitle = journal.entryTitle
@@ -23,15 +23,15 @@ class JournalMapAnnotation: NSObject, MKAnnotation {
         self.longitude = journal.longitude ?? 0
         self.journal = journal
     }
-
+    
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
-
+    
     var title: String? {
         dateString
     }
-
+    
     var subtitle: String? {
         entryTitle
     }

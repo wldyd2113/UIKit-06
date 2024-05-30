@@ -1,3 +1,10 @@
+//
+//  ViewController.swift
+//  JRNL
+//
+//  Created by Jungman Bae on 5/7/24.
+//
+
 import UIKit
 import SwiftData
 
@@ -66,7 +73,7 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
         
         if let photoData = journalEntry.photoData {
             journalCell.photoImageView.image = UIImage(data: photoData)
-        }
+        }        
         journalCell.dateLabel.text = journalEntry.dateString
         journalCell.titleLabel.text = journalEntry.entryTitle
         return journalCell
@@ -171,3 +178,4 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
     }
 
 }
+

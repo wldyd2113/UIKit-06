@@ -2,7 +2,7 @@
 //  JRNLWidgetBundle.swift
 //  JRNLWidget
 //
-//  Created by 차지용 on 5/30/24.
+//  Created by Jungman Bae on 5/30/24.
 //
 
 import WidgetKit

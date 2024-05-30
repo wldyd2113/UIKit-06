@@ -72,7 +72,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             } else {
                 let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 annotationView.canShowCallout = true
-                let calloutButton = UIButton(type: .detailDisclosure)
+                let calloutButton = UIButton(type: .detailDisclosure) 
                 annotationView.rightCalloutAccessoryView = calloutButton
                 return annotationView
             }

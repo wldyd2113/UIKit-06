@@ -1,3 +1,10 @@
+//
+//  JournalEntry.swift
+//  JRNL
+//
+//  Created by Jungman Bae on 5/10/24.
+//
+
 import UIKit
 import MapKit
 import SwiftData
@@ -9,7 +16,7 @@ class JournalEntry {
     let rating: Int
     let entryTitle: String
     let entryBody: String
-    let photoData: Data?
+    @Attribute(.externalStorage) let photoData: Data?
     let latitude: Double?
     let longitude: Double?
     
@@ -25,11 +32,8 @@ class JournalEntry {
         self.rating = rating
         self.entryTitle = title
         self.entryBody = body
-        @Attribute(.externalStorage) let photoData: Data?
+        self.photoData = photo?.jpegData(compressionQuality: 1.0)
         self.latitude = latitude
         self.longitude = longitude
     }
-    
-    
-    
 }
