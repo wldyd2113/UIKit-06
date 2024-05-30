@@ -3,7 +3,7 @@
 //  JRNLWidget
 //
 //  Created by Jungman Bae on 5/30/24.
-//
+//.
 
 import WidgetKit
 import SwiftUI
