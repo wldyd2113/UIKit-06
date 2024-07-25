@@ -27,16 +27,16 @@ class ViewController: UIViewController {
                                       primaryAction: UIAction { [weak self] action in
             let newPostViewController = NewPostViewController()
             let navigationController = UINavigationController(rootViewController: newPostViewController)
-
+            
             if let sheet = navigationController.sheetPresentationController {
                 sheet.detents = [.medium(), .large()]
                 sheet.prefersGrabberVisible = true
                 sheet.preferredCornerRadius = 20
             }
-
+            
             self?.present(navigationController, animated: true, completion: nil)
         })
-
+                
         navigationItem.rightBarButtonItem = barItem
     }
 
@@ -51,20 +51,23 @@ class ViewController: UIViewController {
         dataSource = UITableViewDiffableDataSource<Section, Post>(tableView: tableView) {
             (tableView, indexPath, item) -> UITableViewCell? in
             let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
+
             cell.configureItem(with: item)
-            
+        
             return cell
         }
     }
     
     func startListeningToFirestore() {
-        listener = db.collection("Posts").addSnapshotListener {
+        listener = db.collection("Posts")
+            .order(by: "datePublished", descending: true)
+            .addSnapshotListener {
             [weak self] querySnapshot, error in
             guard let documents = querySnapshot?.documents else {
                 print("Error fetching documents: \(error!)")
                 return
             }
-            dump(documents)
+//            dump(documents)
             let posts = documents.compactMap { Post(document: $0) }
             self?.updateDataSource(with: posts)
         }
