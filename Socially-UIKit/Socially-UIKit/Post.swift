@@ -6,13 +6,17 @@
 //
 
 import Foundation
-import FirebaseCore
-import FirebaseFirestoreSwift
-
+import FirebaseFirestore
 
 struct Post: Identifiable, Decodable, Hashable {
     @DocumentID var id: String?
     var description: String?
     var imageUR: String?
     @ServerTimestamp var datePublished: Date?
+    
+    init?(document: QueryDocumentSnapshot) {
+        dump(document.data())
+        self.id = document.documentID
+        self.description = document.data()["description"] as? String
+    }
 }
