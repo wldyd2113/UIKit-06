@@ -10,7 +10,7 @@ import FirebaseCore
 import FirebaseFirestoreSwift
 
 
-struct Post: Identifiable, Decodable {
+struct Post: Identifiable, Decodable, Hashable {
     @DocumentID var id: String?
     var description: String?
     var imageUR: String?
