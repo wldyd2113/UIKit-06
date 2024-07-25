@@ -1,7 +1,6 @@
-
-
 import UIKit
 import FirebaseFirestore
+
 class ViewController: UIViewController {
     enum Section {
         case main
@@ -15,12 +14,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Feed"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "text.bubble"), tag: 0)
         
         db = Firestore.firestore()
         configureTableView()
+        configureDataSource()
+        startListeningToFirestore()
     }
-    
+
     func configureTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
         view.addSubview(tableView)
@@ -63,5 +65,5 @@ class ViewController: UIViewController {
     deinit {
         listener?.remove()
     }
-}
 
+}
