@@ -12,4 +12,5 @@ target 'Socially-UIKit' do
   pod 'FirebaseStorage'
   pod 'FirebaseFirestoreSwift'
   pod 'SDWebImage'
+  pod 'Kingfisher'
 end
