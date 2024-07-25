@@ -13,6 +13,7 @@
 		37E818372C51D69E007EFF62 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 37E818362C51D69E007EFF62 /* Base */; };
 		37E818392C51D6A0007EFF62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E818382C51D6A0007EFF62 /* Assets.xcassets */; };
 		37E8183C2C51D6A0007EFF62 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 37E8183B2C51D6A0007EFF62 /* Base */; };
+		3B6075212C52722400BA3DFA /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6075202C52722400BA3DFA /* NewPostViewController.swift */; };
 		3BB11ED42C51EB0C00782C30 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB11ED32C51EB0C00782C30 /* Post.swift */; };
 		3BB11ED62C51EB5F00782C30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BB11ED52C51EB5F00782C30 /* GoogleService-Info.plist */; };
 		3BF4DD322C521D7800288B72 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4DD312C521D7800288B72 /* PostTableViewCell.swift */; };
@@ -28,6 +29,7 @@
 		37E818382C51D6A0007EFF62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E8183B2C51D6A0007EFF62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37E8183D2C51D6A0007EFF62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B6075202C52722400BA3DFA /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		3BB11ED32C51EB0C00782C30 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3BB11ED52C51EB5F00782C30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3BF4DD312C521D7800288B72 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				37E818312C51D69E007EFF62 /* SceneDelegate.swift */,
 				37E818332C51D69E007EFF62 /* ViewController.swift */,
 				3BF4DD312C521D7800288B72 /* PostTableViewCell.swift */,
+				3B6075202C52722400BA3DFA /* NewPostViewController.swift */,
 				37E818352C51D69E007EFF62 /* Main.storyboard */,
 				37E818382C51D6A0007EFF62 /* Assets.xcassets */,
 				37E8183A2C51D6A0007EFF62 /* LaunchScreen.storyboard */,
@@ -221,6 +224,7 @@
 				3BF4DD322C521D7800288B72 /* PostTableViewCell.swift in Sources */,
 				37E818302C51D69E007EFF62 /* AppDelegate.swift in Sources */,
 				37E818322C51D69E007EFF62 /* SceneDelegate.swift in Sources */,
+				3B6075212C52722400BA3DFA /* NewPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
