@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		37E818302C51D69E007EFF62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E8182F2C51D69E007EFF62 /* AppDelegate.swift */; };
 		37E818322C51D69E007EFF62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E818312C51D69E007EFF62 /* SceneDelegate.swift */; };
-		37E818342C51D69E007EFF62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E818332C51D69E007EFF62 /* ViewController.swift */; };
-		37E818372C51D69E007EFF62 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 37E818362C51D69E007EFF62 /* Base */; };
+		37E818342C51D69E007EFF62 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E818332C51D69E007EFF62 /* FeedViewController.swift */; };
 		37E818392C51D6A0007EFF62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E818382C51D6A0007EFF62 /* Assets.xcassets */; };
 		37E8183C2C51D6A0007EFF62 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 37E8183B2C51D6A0007EFF62 /* Base */; };
 		3B6075212C52722400BA3DFA /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6075202C52722400BA3DFA /* NewPostViewController.swift */; };
+		3B7CB44F2C5323A50045D1A0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CB44E2C5323A50045D1A0 /* ProfileViewController.swift */; };
 		3BB11ED42C51EB0C00782C30 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB11ED32C51EB0C00782C30 /* Post.swift */; };
 		3BB11ED62C51EB5F00782C30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BB11ED52C51EB5F00782C30 /* GoogleService-Info.plist */; };
 		3BF4DD322C521D7800288B72 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4DD312C521D7800288B72 /* PostTableViewCell.swift */; };
@@ -24,12 +24,12 @@
 		37E8182C2C51D69E007EFF62 /* Socially-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Socially-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E8182F2C51D69E007EFF62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37E818312C51D69E007EFF62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		37E818332C51D69E007EFF62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		37E818362C51D69E007EFF62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		37E818332C51D69E007EFF62 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		37E818382C51D6A0007EFF62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E8183B2C51D6A0007EFF62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37E8183D2C51D6A0007EFF62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B6075202C52722400BA3DFA /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		3B7CB44E2C5323A50045D1A0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3BB11ED32C51EB0C00782C30 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3BB11ED52C51EB5F00782C30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3BF4DD312C521D7800288B72 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -74,10 +74,10 @@
 				37E8182F2C51D69E007EFF62 /* AppDelegate.swift */,
 				3BB11ED32C51EB0C00782C30 /* Post.swift */,
 				37E818312C51D69E007EFF62 /* SceneDelegate.swift */,
-				37E818332C51D69E007EFF62 /* ViewController.swift */,
+				37E818332C51D69E007EFF62 /* FeedViewController.swift */,
 				3BF4DD312C521D7800288B72 /* PostTableViewCell.swift */,
 				3B6075202C52722400BA3DFA /* NewPostViewController.swift */,
-				37E818352C51D69E007EFF62 /* Main.storyboard */,
+				3B7CB44E2C5323A50045D1A0 /* ProfileViewController.swift */,
 				37E818382C51D6A0007EFF62 /* Assets.xcassets */,
 				37E8183A2C51D6A0007EFF62 /* LaunchScreen.storyboard */,
 				37E8183D2C51D6A0007EFF62 /* Info.plist */,
@@ -166,7 +166,6 @@
 				37E818392C51D6A0007EFF62 /* Assets.xcassets in Resources */,
 				3BB11ED62C51EB5F00782C30 /* GoogleService-Info.plist in Resources */,
 				37E8183C2C51D6A0007EFF62 /* Base in Resources */,
-				37E818372C51D69E007EFF62 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,10 +218,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E818342C51D69E007EFF62 /* ViewController.swift in Sources */,
+				37E818342C51D69E007EFF62 /* FeedViewController.swift in Sources */,
 				3BB11ED42C51EB0C00782C30 /* Post.swift in Sources */,
 				3BF4DD322C521D7800288B72 /* PostTableViewCell.swift in Sources */,
 				37E818302C51D69E007EFF62 /* AppDelegate.swift in Sources */,
+				3B7CB44F2C5323A50045D1A0 /* ProfileViewController.swift in Sources */,
 				37E818322C51D69E007EFF62 /* SceneDelegate.swift in Sources */,
 				3B6075212C52722400BA3DFA /* NewPostViewController.swift in Sources */,
 			);
@@ -231,14 +231,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		37E818352C51D69E007EFF62 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				37E818362C51D69E007EFF62 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		37E8183A2C51D6A0007EFF62 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -383,7 +375,6 @@
 				INFOPLIST_FILE = "Socially-UIKit/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -413,7 +404,6 @@
 				INFOPLIST_FILE = "Socially-UIKit/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
