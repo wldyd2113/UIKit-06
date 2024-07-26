@@ -13,6 +13,7 @@ struct Post: Identifiable, Decodable, Hashable {
     @DocumentID var id: String?
     var description: String?
     var imageURL: String?
+    var path: String?
     @ServerTimestamp var datePublished: Date?
     
     init?(document: QueryDocumentSnapshot) {
@@ -21,18 +22,15 @@ struct Post: Identifiable, Decodable, Hashable {
         if let url = document.data()["imageURL"] as? String {
             self.imageURL = url
         }
-        else if let path = document.data()["path"] as? String {
-            let mutableSelf = self
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                mutableSelf.checkImageURL(path)
-            }
+        if let path = document.data()["path"] as? String {
+            self.path = path
         }
     }
     
     func checkImageURL(_ path: String) {
         let thumbRef = Storage.storage().reference().child("thumbs/\(path)_320x200")
         thumbRef.downloadURL { url, error in
-            if let error = error {
+            if error  != nil {
                 return
             }
             
@@ -40,7 +38,7 @@ struct Post: Identifiable, Decodable, Hashable {
                let docId = self.id {
                 Firestore.firestore().collection("Posts")
                     .document(docId)
-                    .setData(["imageURL": url], merge: true)
+                    .setData(["imageURL": url.absoluteString])
             }
         }
     }
