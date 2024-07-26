@@ -14,6 +14,7 @@
 		37E8183C2C51D6A0007EFF62 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 37E8183B2C51D6A0007EFF62 /* Base */; };
 		3B6075212C52722400BA3DFA /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6075202C52722400BA3DFA /* NewPostViewController.swift */; };
 		3B7CB44F2C5323A50045D1A0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CB44E2C5323A50045D1A0 /* ProfileViewController.swift */; };
+		3B7CB4522C532DAA0045D1A0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CB4512C532DAA0045D1A0 /* AuthService.swift */; };
 		3BB11ED42C51EB0C00782C30 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB11ED32C51EB0C00782C30 /* Post.swift */; };
 		3BB11ED62C51EB5F00782C30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BB11ED52C51EB5F00782C30 /* GoogleService-Info.plist */; };
 		3BF4DD322C521D7800288B72 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4DD312C521D7800288B72 /* PostTableViewCell.swift */; };
@@ -30,6 +31,8 @@
 		37E8183D2C51D6A0007EFF62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B6075202C52722400BA3DFA /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		3B7CB44E2C5323A50045D1A0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3B7CB4512C532DAA0045D1A0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		3B7CB4552C532E050045D1A0 /* Socially-UIKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Socially-UIKit.entitlements"; sourceTree = "<group>"; };
 		3BB11ED32C51EB0C00782C30 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3BB11ED52C51EB5F00782C30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3BF4DD312C521D7800288B72 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -71,19 +74,45 @@
 		37E8182E2C51D69E007EFF62 /* Socially-UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				3B7CB4552C532E050045D1A0 /* Socially-UIKit.entitlements */,
 				37E8182F2C51D69E007EFF62 /* AppDelegate.swift */,
-				3BB11ED32C51EB0C00782C30 /* Post.swift */,
 				37E818312C51D69E007EFF62 /* SceneDelegate.swift */,
-				37E818332C51D69E007EFF62 /* FeedViewController.swift */,
-				3BF4DD312C521D7800288B72 /* PostTableViewCell.swift */,
-				3B6075202C52722400BA3DFA /* NewPostViewController.swift */,
-				3B7CB44E2C5323A50045D1A0 /* ProfileViewController.swift */,
+				3B7CB4542C532DCE0045D1A0 /* Service */,
+				3B7CB4502C532D840045D1A0 /* Post */,
+				3B7CB4532C532DB10045D1A0 /* Account */,
 				37E818382C51D6A0007EFF62 /* Assets.xcassets */,
 				37E8183A2C51D6A0007EFF62 /* LaunchScreen.storyboard */,
 				37E8183D2C51D6A0007EFF62 /* Info.plist */,
 				3BB11ED52C51EB5F00782C30 /* GoogleService-Info.plist */,
 			);
 			path = "Socially-UIKit";
+			sourceTree = "<group>";
+		};
+		3B7CB4502C532D840045D1A0 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				3BB11ED32C51EB0C00782C30 /* Post.swift */,
+				37E818332C51D69E007EFF62 /* FeedViewController.swift */,
+				3BF4DD312C521D7800288B72 /* PostTableViewCell.swift */,
+				3B6075202C52722400BA3DFA /* NewPostViewController.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		3B7CB4532C532DB10045D1A0 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				3B7CB44E2C5323A50045D1A0 /* ProfileViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		3B7CB4542C532DCE0045D1A0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3B7CB4512C532DAA0045D1A0 /* AuthService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		4642DE8D0E5BB16F61D4796A /* Pods */ = {
@@ -225,6 +254,7 @@
 				3B7CB44F2C5323A50045D1A0 /* ProfileViewController.swift in Sources */,
 				37E818322C51D69E007EFF62 /* SceneDelegate.swift in Sources */,
 				3B6075212C52722400BA3DFA /* NewPostViewController.swift in Sources */,
+				3B7CB4522C532DAA0045D1A0 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +397,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Socially-UIKit/Socially-UIKit.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 59FP2PXRXK;
@@ -396,6 +427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Socially-UIKit/Socially-UIKit.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 59FP2PXRXK;
